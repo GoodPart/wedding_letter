@@ -1,25 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { NavermapsProvider, Container as MapDiv, NaverMap, Marker, useNavermaps } from "react-naver-maps";
+
+function MyMap() {
+  // instead of window.naver.maps
+  const navermaps = useNavermaps()
+
+  return (
+    <NaverMap
+      defaultCenter={new navermaps.LatLng(37.3595704, 127.105399)}
+      defaultZoom={15}
+    >
+      <Marker
+        defaultPosition={new navermaps.LatLng(37.3595704, 127.105399)}
+      />
+    </NaverMap>
+  )
+}
 
 function App() {
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <NavermapsProvider ncpClientId={`${process.env.REACT_APP_NAVER_MAP_API_KEY}`}>
+      <MapDiv
+        style={{
+          width: '100%',
+          height: '600px',
+        }}
+      >
+        <MyMap />
+      </MapDiv>
+    </NavermapsProvider>
   );
 }
 
