@@ -1,34 +1,136 @@
-import { NavermapsProvider, Container as MapDiv, NaverMap, Marker, useNavermaps } from "react-naver-maps";
+import { NavermapsProvider } from "react-naver-maps";
+import Map from "./layouts/location/Map";
 
-function MyMap() {
-  // instead of window.naver.maps
-  const navermaps = useNavermaps()
-
-  return (
-    <NaverMap
-      defaultCenter={new navermaps.LatLng(37.3595704, 127.105399)}
-      defaultZoom={15}
-    >
-      <Marker
-        defaultPosition={new navermaps.LatLng(37.3595704, 127.105399)}
-      />
-    </NaverMap>
-  )
-}
+import mainBg from "./assets/images/main2.jpg";
+import subBg1 from "./assets/images/sub1.jpg";
 
 function App() {
-  
   return (
-    <NavermapsProvider ncpClientId={`${process.env.REACT_APP_NAVER_MAP_API_KEY}`}>
-      <MapDiv
+    <div style={{ maxWidth: "390px", height: "280px", margin: "0 auto" }}>
+      <div>
+        <img src={mainBg} style={{ width: "100%" }} alt="" />
+      </div>
+      <div style={{ padding: 24, margin: 4, border: "1px solid #777" }}>
+        2024.11.16 - 토요일 - 13:20 오후
+        <br />
+        웨스턴팰리스 웨딩홀 / 7층 웨스턴홀
+      </div>
+
+      <div style={{ padding: 24, margin: 4, border: "1px solid #777" }}>
+        (축하말) 두 사람이 꽃과 나무처럼 걸어와서
+        <br />
+        서로의 모든 것이 되기 위해
+        <br />
+        오랜 기다림 끝에 혼례식을 치르는 날
+        <br />
+        세상은 더욱 아름다워라
+        <br />
+        <br />
+        이해인, &#60;사랑의 사람들이여&#62;
+      </div>
+
+      <div style={{ padding: 24, margin: 4, border: "1px solid #777" }}>
+        소중한 분들을 초대합니다.
+        <br />
+        (초대 문구)
+        <br />
+        (초대 문구)
+        <br />
+        (초대 문구)
+        <br />
+        (초대 문구)
+        <br />
+      </div>
+      <div>
+        <img src={subBg1} style={{ width: "100%" }} alt="" />
+      </div>
+      <div style={{ padding: 24, margin: 4, border: "1px solid #777" }}>
+        <span>박종오 | 유수자의 아들 경수</span>
+        <br />
+        <span>조병철 | 김현자 의 딸 예나</span>
+      </div>
+      <div style={{ padding: 24, margin: 4, border: "1px solid #777" }}>
+        2024.11.16
+        <br />
+        토요일 오후 1시 20분
+        <br />
+        (달력)
+      </div>
+      <div style={{ padding: 24, margin: 4, border: "1px solid #777" }}>
+        (갤러리)
+      </div>
+
+      <div
+        id="wrap"
         style={{
-          width: '100%',
-          height: '600px',
+          position: "relative",
+          maxWidth: "390px",
+          // height: "280px",
+          margin: "0 auto",
         }}
       >
-        <MyMap />
-      </MapDiv>
-    </NavermapsProvider>
+        (오시는 길)
+        <NavermapsProvider
+          ncpClientId={`${process.env.REACT_APP_NAVER_MAP_API_KEY}`}
+        >
+          <Map />
+        </NavermapsProvider>
+        <br />
+        지하철 : 인천1호선 갈산역2번출구 1분거리
+        <br />
+        자가용 : 고속도로 부평 I/C 주차시설 1500대
+      </div>
+
+      <div style={{ padding: 24, margin: 4, border: "1px solid #777" }}>
+        (예식장 정보 안내)
+        <br />
+        주차 안내 : 주차는 웨딩홀 대각선 '우림라이온스 밸리' 지하 주차장 이용
+        <br />
+        주차 후 갈산역과 연결된 통로를 통해 이동 가능
+        <br />
+        <br />
+        식사 안내 : 본관 4층에서 뷔페식 으로 진행 됩니다.
+        <br />
+        부족함 없이 즐기실 수 있도록
+        <br />
+        한식을 비롯한 다양한 음식이 준비 되어 있습니다.
+      </div>
+
+      <div style={{ padding: 24, margin: 4, border: "1px solid #777" }}>
+        (축의금 전달 관련) 마음을 전하실 곳<br />
+        참석이 어려우신 분들을 위해
+        <br />
+        계좌번호를 기재하였습니다.
+        <br />
+        너그러운 마음으로 양해 부탁드립니다.
+        <br />
+        <br />
+        <hr />
+        <br />
+        <div>
+          신랑측 계좌번호
+          <br />
+          기업 | 111-123-456789 (복사)
+          <br />
+          박경수
+        </div>
+        <br />
+        <hr />
+        <br />
+        <div>
+          신부측 계좌번호
+          <br />
+          기업 | 111-123-456789 (복사)
+          <br />
+          조예나
+        </div>
+      </div>
+      <div style={{ padding: 24, margin: 4, border: "1px solid #777" }}>
+        카카오톡 공유하기
+        <br />
+        링크 주소 복사
+      </div>
+    </div>
   );
 }
 
