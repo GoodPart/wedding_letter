@@ -4,17 +4,15 @@ import Map from "./layouts/location/Map";
 import mainBg from "./assets/images/main2.jpg";
 import subBg1 from "./assets/images/sub1.jpg";
 
+// component
+import Main from "./layouts/main/Main";
+
+import "./assets/css/App.css";
+
 function App() {
   return (
     <div style={{ maxWidth: "390px", height: "280px", margin: "0 auto" }}>
-      <div>
-        <img src={mainBg} style={{ width: "100%" }} alt="" />
-      </div>
-      <div style={{ padding: 24, margin: 4, border: "1px solid #777" }}>
-        2024.11.16 - 토요일 - 13:20 오후
-        <br />
-        웨스턴팰리스 웨딩홀 / 7층 웨스턴홀
-      </div>
+      <Main />
 
       <div style={{ padding: 24, margin: 4, border: "1px solid #777" }}>
         (축하말) 두 사람이 꽃과 나무처럼 걸어와서

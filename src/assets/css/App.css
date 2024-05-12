@@ -1,0 +1,26 @@
+:root {
+  --vh: 100%;
+}
+
+/*아래 폰트*/
+
+@font-face {
+  font-family: "Serif_KR_light";
+  font-display: fallback;
+
+  src: url("../font/Noto_Serif_KR/NotoSerifKR-Light.otf") format("opentype");
+
+  /* 사용할 폰트의 기본 스타일 */
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Serif_KR_bold";
+  font-display: fallback;
+
+  src: url("../font/Noto_Serif_KR/NotoSerifKR-Bold.otf") format("opentype");
+
+  font-weight: 600;
+  font-style: normal;
+}
