@@ -3,9 +3,10 @@ import styled from "styled-components";
 
 interface WrapperProps {
   children: React.ReactNode;
+  ref?: React.Ref<HTMLDivElement>;
 }
-const Layer = ({ children }: WrapperProps) => {
-  return <Wrapper>{children}</Wrapper>;
+const Layer = ({ ref, children }: WrapperProps) => {
+  return <Wrapper ref={ref}>{children}</Wrapper>;
 };
 
 export default Layer;

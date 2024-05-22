@@ -1,4 +1,6 @@
+import React, { useEffect, useRef, useState } from "react";
 import { NavermapsProvider } from "react-naver-maps";
+import { useInView } from "react-intersection-observer";
 import Map from "./layouts/location/Map";
 
 import mainBg from "./assets/images/main2.jpg";
@@ -6,15 +8,66 @@ import subBg1 from "./assets/images/sub1.jpg";
 
 // component
 import Main from "./layouts/main/Main";
+import Layer from "./layouts/layer/Layer";
 
 import "./assets/css/App.css";
 
 function App() {
+  const [classAdd1, setClassAdd1] = useState(false);
+  const [classAdd2, setClassAdd2] = useState(false);
+
+  const [ref, inView, entry] = useInView({
+    threshold: 0.5,
+  });
+
+  const ref1 = useRef<HTMLDivElement>(null);
+  const ref2 = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries: any) => {
+        if (entries[0].isIntersecting) {
+          setClassAdd1(true);
+        }
+      },
+      { threshold: 0.4 }
+    );
+    if (ref1.current) {
+      observer.observe(ref1.current);
+    }
+
+    const observer2 = new IntersectionObserver(
+      (entries: any) => {
+        if (entries[0].isIntersecting) {
+          setClassAdd2(true);
+        }
+      },
+      { threshold: 0.4 }
+    );
+
+    if (ref2.current) {
+      observer2.observe(ref2.current);
+    }
+
+    return () => {
+      if (ref1.current) {
+        observer.unobserve(ref1.current);
+      }
+      if (ref2.current) {
+        observer2.unobserve(ref2.current);
+      }
+    };
+  }, []);
   return (
     <div style={{ maxWidth: "390px", height: "280px", margin: "0 auto" }}>
       <Main />
 
-      <div style={{ padding: 24, margin: 4, border: "1px solid #777" }}>
+      <div
+        ref={ref2}
+        className={classAdd2 ? "show" : ""}
+        id="test1"
+        style={{ padding: 24, margin: 4, border: "1px solid #777" }}
+      >
         (축하말) 두 사람이 꽃과 나무처럼 걸어와서
         <br />
         서로의 모든 것이 되기 위해
@@ -27,7 +80,10 @@ function App() {
         이해인, &#60;사랑의 사람들이여&#62;
       </div>
 
-      <div style={{ padding: 24, margin: 4, border: "1px solid #777" }}>
+      <div
+        id="test2"
+        style={{ padding: 24, margin: 4, border: "1px solid #777" }}
+      >
         소중한 분들을 초대합니다.
         <br />
         (초대 문구)
@@ -39,7 +95,7 @@ function App() {
         (초대 문구)
         <br />
       </div>
-      <div>
+      <div id="test3">
         <img src={subBg1} style={{ width: "100%" }} alt="" />
       </div>
       <div style={{ padding: 24, margin: 4, border: "1px solid #777" }}>
@@ -57,9 +113,14 @@ function App() {
       <div style={{ padding: 24, margin: 4, border: "1px solid #777" }}>
         (갤러리)
       </div>
+      <div ref={ref}>
+        <h2>{`Header inside viewport ${inView}.`}</h2>
+      </div>
 
       <div
+        ref={ref1}
         id="wrap"
+        className={classAdd1 ? "show" : ""}
         style={{
           position: "relative",
           maxWidth: "390px",
