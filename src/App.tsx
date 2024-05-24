@@ -61,7 +61,6 @@ function App() {
   return (
     <div style={{ maxWidth: "390px", height: "280px", margin: "0 auto" }}>
       <Main />
-
       <div
         ref={ref2}
         className={classAdd2 ? "show" : ""}
