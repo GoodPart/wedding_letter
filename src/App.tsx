@@ -12,7 +12,7 @@ import Layer from "./layouts/layer/Layer";
 
 import styled from "styled-components";
 import "./assets/css/App.css";
-import { GalleryWrap } from "./layouts/gallery/Gallery";
+import GalleryWrap from "./layouts/gallery/GalleryWrap";
 
 function App() {
   const [classAdd1, setClassAdd1] = useState(false);
