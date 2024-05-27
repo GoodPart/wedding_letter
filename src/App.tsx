@@ -10,7 +10,9 @@ import subBg1 from "./assets/images/sub1.jpg";
 import Main from "./layouts/main/Main";
 import Layer from "./layouts/layer/Layer";
 
+import styled from "styled-components";
 import "./assets/css/App.css";
+import { GalleryWrap } from "./layouts/gallery/Gallery";
 
 function App() {
   const [classAdd1, setClassAdd1] = useState(false);
@@ -59,15 +61,23 @@ function App() {
     };
   }, []);
   return (
-    <div style={{ maxWidth: "390px", height: "280px", margin: "0 auto" }}>
+    <Wrapper style={{ maxWidth: "390px", height: "280px", margin: "0 auto" }}>
       <Main />
       <div
         ref={ref2}
         className={classAdd2 ? "show" : ""}
         id="test1"
-        style={{ padding: 24, margin: 4, border: "1px solid #777" }}
+        style={{
+          padding: 24,
+          margin: 4,
+          border: "1px solid #777",
+          textAlign: "center",
+          lineHeight: "2rem",
+          fontFamily: "Serif_KR_light",
+          fontSize: "14px",
+        }}
       >
-        (축하말) 두 사람이 꽃과 나무처럼 걸어와서
+        두 사람이 꽃과 나무처럼 걸어와서
         <br />
         서로의 모든 것이 되기 위해
         <br />
@@ -110,7 +120,7 @@ function App() {
         (달력)
       </div>
       <div style={{ padding: 24, margin: 4, border: "1px solid #777" }}>
-        (갤러리)
+        <GalleryWrap />
       </div>
       <div ref={ref}>
         <h2>{`Header inside viewport ${inView}.`}</h2>
@@ -188,8 +198,17 @@ function App() {
         <br />
         링크 주소 복사
       </div>
-    </div>
+    </Wrapper>
   );
 }
 
 export default App;
+
+const Wrapper = styled.div`
+  & > div {
+    text-align: center;
+    line-height: 2rem;
+    font-family: "Serif_KR_light";
+    font-size: 14px;
+  }
+`;
