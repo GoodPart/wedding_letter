@@ -2,6 +2,11 @@
   --vh: 100%;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+}
+
 .react-calendar {
   border: none !important;
 }

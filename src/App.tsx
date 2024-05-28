@@ -113,18 +113,24 @@ function App() {
       <div style={{ padding: 24, margin: 4 }}>
         <img src={symbol} width={48} style={{ textAlign: "center" }} />
         <br />
-        <JustifyItem>박종오 &#183; 유수자의 아들 경수</JustifyItem>
-        <br />
-        <JustifyItem>조병철 &#183; 김현자 의 딸 예나</JustifyItem>
+        <JustifyItem>
+          박종오 &#183; 유수자의 <strong>아들</strong> 경수
+        </JustifyItem>
+        <JustifyItem>
+          조병철 &#183; 김현자의 <strong>딸</strong> 예나
+        </JustifyItem>
       </div>
-      <div style={{ padding: 24, margin: 4, border: "1px solid #777" }}>
+      <div style={{ padding: 24, margin: 4 }}>
         2024.11.16
         <br />
         토요일 오후 1시 20분
         <br />
+        <br />
+        <hr />
+        <br />
         <CalendarWrap />
       </div>
-      <div style={{ padding: 24, margin: 4, border: "1px solid #777" }}>
+      <div style={{ padding: 24, margin: 4 }}>
         <GalleryWrap />
       </div>
       <div ref={ref}>
@@ -220,7 +226,7 @@ const Wrapper = styled.div`
 
 const JustifyItem = styled.p`
   margin: 0 auto;
-  width: 200px;
+  width: 170px;
   text-align: justify;
   line-height: 12px;
   vertical-align: middle;
