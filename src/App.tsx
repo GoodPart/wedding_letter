@@ -12,6 +12,8 @@ import styled from "styled-components";
 import "./assets/css/App.css";
 import GalleryWrap from "./layouts/gallery/GalleryWrap";
 
+//캘린더
+import CalendarWrap from "./layouts/calendar/Calendar";
 function App() {
   const [classAdd1, setClassAdd1] = useState(false);
   const [classAdd2, setClassAdd2] = useState(false);
@@ -120,7 +122,7 @@ function App() {
         <br />
         토요일 오후 1시 20분
         <br />
-        (달력)
+        <CalendarWrap />
       </div>
       <div style={{ padding: 24, margin: 4, border: "1px solid #777" }}>
         <GalleryWrap />

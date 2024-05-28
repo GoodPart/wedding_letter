@@ -2,6 +2,10 @@
   --vh: 100%;
 }
 
+.react-calendar {
+  border: none !important;
+}
+
 /*아래 폰트*/
 
 @font-face {
