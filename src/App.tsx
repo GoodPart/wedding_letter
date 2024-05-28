@@ -3,9 +3,7 @@ import { NavermapsProvider } from "react-naver-maps";
 import { useInView } from "react-intersection-observer";
 import Map from "./layouts/location/Map";
 
-import mainBg from "./assets/images/main2.jpg";
-import subBg1 from "./assets/images/sub1.jpg";
-
+import symbol from "./assets/images/symbol/icons8-flower-bouquet-96.png";
 // component
 import Main from "./layouts/main/Main";
 import Layer from "./layouts/layer/Layer";
@@ -70,13 +68,10 @@ function App() {
         style={{
           padding: 24,
           margin: 4,
-          border: "1px solid #777",
-          textAlign: "center",
-          lineHeight: "2rem",
-          fontFamily: "Serif_KR_light",
-          fontSize: "14px",
         }}
       >
+        <img src={symbol} width={48} style={{ textAlign: "center" }} />
+        <br />
         두 사람이 꽃과 나무처럼 걸어와서
         <br />
         서로의 모든 것이 되기 위해
@@ -89,28 +84,36 @@ function App() {
         이해인, &#60;사랑의 사람들이여&#62;
       </div>
 
-      <div
-        id="test2"
-        style={{ padding: 24, margin: 4, border: "1px solid #777" }}
-      >
+      <div id="test2" style={{ padding: 24, margin: 4 }}>
+        <img src={symbol} width={48} style={{ textAlign: "center" }} />
+        <br />
         소중한 분들을 초대합니다.
         <br />
-        (초대 문구)
+        살랑이는 바람결에
         <br />
-        (초대 문구)
+        <span style={{ color: "coral" }}>사랑</span>이 묻어나는 계절입니다.
         <br />
-        (초대 문구)
+        여기 곱고 예쁜 두 사람이
+        <span style={{ color: "coral" }}>사랑</span>
+        을 맺어
         <br />
-        (초대 문구)
+        인생의 반려자가 되려 합니다.
+        <br />
+        새 인생을 시작하는 이 자리에 오셔서
+        <br />
+        <span style={{ color: "coral" }}>축복</span>
+        해 주시면 감사하겠습니다.
         <br />
       </div>
       <div id="test3">
-        <img src={subBg1} style={{ width: "100%" }} alt="" />
+        {/* <img src={subBg1} style={{ width: "100%" }} alt="" /> */}
       </div>
-      <div style={{ padding: 24, margin: 4, border: "1px solid #777" }}>
-        <span>박종오 | 유수자의 아들 경수</span>
+      <div style={{ padding: 24, margin: 4 }}>
+        <img src={symbol} width={48} style={{ textAlign: "center" }} />
         <br />
-        <span>조병철 | 김현자 의 딸 예나</span>
+        <JustifyItem>박종오 &#183; 유수자의 아들 경수</JustifyItem>
+        <br />
+        <JustifyItem>조병철 &#183; 김현자 의 딸 예나</JustifyItem>
       </div>
       <div style={{ padding: 24, margin: 4, border: "1px solid #777" }}>
         2024.11.16
@@ -210,5 +213,19 @@ const Wrapper = styled.div`
     line-height: 2rem;
     font-family: "Serif_KR_light";
     font-size: 14px;
+  }
+`;
+
+const JustifyItem = styled.p`
+  margin: 0 auto;
+  width: 200px;
+  text-align: justify;
+  line-height: 12px;
+  vertical-align: middle;
+
+  &:after {
+    content: "";
+    display: inline-block;
+    width: 100%;
   }
 `;

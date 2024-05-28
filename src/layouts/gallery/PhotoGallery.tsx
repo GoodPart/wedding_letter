@@ -26,8 +26,8 @@ export const PhotoGallery = () => {
               cropped
               original={item.source}
               thumbnail={item.source}
-              width={1280}
-              height={1920}
+              width="1280"
+              height="1920"
             >
               {({ ref, open }) => (
                 <img

@@ -27,7 +27,7 @@ export default GalleryWrap;
 const ContentWrap = styled.div`
   margin: 30px 0;
   box-sizing: border-box;
-  overflow: hidden;
+  /* overflow: hidden; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -43,6 +43,7 @@ const ImageMoreWrap = styled.div<{ isMoreView: boolean }>`
 `;
 
 const WhiteGradientOverlay = styled.div`
+  pointer-events: none;
   position: absolute;
   top: 0;
   left: 0;
