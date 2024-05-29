@@ -40,13 +40,10 @@ const Main = () => {
       <img src={mainBg} alt="" />
       <Title>
         <div className="inner__wrapper">
-          {/* <div className="title__head">
-            <div>박경수</div> &#183; <div>조예나</div>
-          </div> */}
           <div className="title__conrainer">
             2024년 11월 16일 토요일 13시 20분
             <br />
-            웨스턴홀 웨스턴팰리스 7층 웨스턴 홀
+            웨스턴팰리스 7층 웨스턴 홀
           </div>
         </div>
       </Title>

@@ -6,7 +6,9 @@ import Map from "./layouts/location/Map";
 import symbol from "./assets/images/symbol/icons8-flower-bouquet-96.png";
 // component
 import Main from "./layouts/main/Main";
-import Layer from "./layouts/layer/Layer";
+import GreetingWrap from "./layouts/greeting/Greeting";
+import InvittingWrap from "./layouts/invitting/Innvitting";
+import MemberWrap from "./layouts/member/MemberWrap";
 
 import styled from "styled-components";
 import "./assets/css/App.css";
@@ -14,6 +16,11 @@ import GalleryWrap from "./layouts/gallery/GalleryWrap";
 
 //캘린더
 import CalendarWrap from "./layouts/calendar/Calendar";
+import Title from "./layouts/layer/Title";
+
+// data
+import data from "./data.json";
+
 function App() {
   const [classAdd1, setClassAdd1] = useState(false);
   const [classAdd2, setClassAdd2] = useState(false);
@@ -24,6 +31,28 @@ function App() {
 
   const ref1 = useRef<HTMLDivElement>(null);
   const ref2 = useRef<HTMLDivElement>(null);
+
+  // const handleDeepLink = () => {
+  //   const isIos = window.navigator.userAgent.match(/ipad|iphone/i) !== null;
+  //   const isAndroid = window.navigator.userAgent.match(/Android/i) !== null;
+
+  //   const { mapInfo } = data;
+
+  //   if (isIos) {
+  //     // 기기가 ios 인 경우
+  //     window.location.replace(
+  //       `nmap://navigation?dlat=${mapInfo.lat}&dlng=${mapInfo.log}&dname=%EC%9B%A8%EC%8A%A4%ED%84%B4%ED%8C%B0%EB%A6%AC%EC%8A%A4%EC%9B%A8%EB%94%A9%EC%98%88%EC%8B%9D%EC%9E%A5&appname=com.example.myapp`
+  //     );
+  //   } else if (isAndroid) {
+  //     // 기기가 android 인 경우
+  //     window.location.replace("intent://navigation?&appname=com.example.myapp");
+  //   } else {
+  //     // 그 외(윈도우 데스크탑 등)
+  //     window.location.replace(
+  //       `nmap://navigation?dlat=${mapInfo.lat}&dlng=${mapInfo.log}&dname=%EC%9B%A8%EC%8A%A4%ED%84%B4%ED%8C%B0%EB%A6%AC%EC%8A%A4%EC%9B%A8%EB%94%A9%EC%98%88%EC%8B%9D%EC%9E%A5&appname=com.example.myapp`
+  //     );
+  //   }
+  // };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -63,6 +92,9 @@ function App() {
   return (
     <Wrapper style={{ maxWidth: "390px", height: "280px", margin: "0 auto" }}>
       <Main />
+      {/* <button type="button" onClick={() => handleDeepLink()}>
+        링크
+      </button> */}
       <div
         ref={ref2}
         className={classAdd2 ? "show" : ""}
@@ -73,69 +105,41 @@ function App() {
         }}
       >
         <img src={symbol} width={48} style={{ textAlign: "center" }} />
-        <br />
-        두 사람이 꽃과 나무처럼 걸어와서
-        <br />
-        서로의 모든 것이 되기 위해
-        <br />
-        오랜 기다림 끝에 혼례식을 치르는 날
-        <br />
-        세상은 더욱 아름다워라
-        <br />
-        <br />
-        이해인, &#60;사랑의 사람들이여&#62;
+        <GreetingWrap />
       </div>
 
       <div id="test2" style={{ padding: 24, margin: 4 }}>
         <img src={symbol} width={48} style={{ textAlign: "center" }} />
-        <br />
-        소중한 분들을 초대합니다.
-        <br />
-        살랑이는 바람결에
-        <br />
-        <span style={{ color: "coral" }}>사랑</span>이 묻어나는 계절입니다.
-        <br />
-        여기 곱고 예쁜 두 사람이
-        <span style={{ color: "coral" }}>사랑</span>
-        을 맺어
-        <br />
-        인생의 반려자가 되려 합니다.
-        <br />
-        새 인생을 시작하는 이 자리에 오셔서
-        <br />
-        <span style={{ color: "coral" }}>축복</span>
-        해 주시면 감사하겠습니다.
-        <br />
-      </div>
-      <div id="test3">
-        {/* <img src={subBg1} style={{ width: "100%" }} alt="" /> */}
+        <InvittingWrap />
       </div>
       <div style={{ padding: 24, margin: 4 }}>
         <img src={symbol} width={48} style={{ textAlign: "center" }} />
         <br />
-        <JustifyItem>
-          박종오 &#183; 유수자의 <strong>아들</strong> 경수
-        </JustifyItem>
-        <JustifyItem>
-          조병철 &#183; 김현자의 <strong>딸</strong> 예나
-        </JustifyItem>
+        <MemberWrap />
       </div>
-      <div style={{ padding: 24, margin: 4 }}>
-        2024.11.16
+      <div
+        style={{ padding: "24px 48px", margin: 4, backgroundColor: "#f9f9f9" }}
+      >
+        {/* <span style={{ fontSize: 18, letterSpacing: 4, fontWeight: 700 }}>
+          2024.11.16
+        </span>
         <br />
-        토요일 오후 1시 20분
+        토요일 오후 1시 20분 */}
         <br />
         <br />
         <hr />
         <br />
         <CalendarWrap />
+        <br />
+        <hr />
+        <br />
       </div>
       <div style={{ padding: 24, margin: 4 }}>
         <GalleryWrap />
       </div>
-      <div ref={ref}>
+      {/* <div ref={ref}>
         <h2>{`Header inside viewport ${inView}.`}</h2>
-      </div>
+      </div> */}
 
       <div
         ref={ref1}
@@ -144,11 +148,10 @@ function App() {
         style={{
           position: "relative",
           maxWidth: "390px",
-          // height: "280px",
           margin: "0 auto",
         }}
       >
-        (오시는 길)
+        <Title title="오시는 길" titleDecoration="location" />
         <NavermapsProvider
           ncpClientId={`${process.env.REACT_APP_NAVER_MAP_API_KEY}`}
         >

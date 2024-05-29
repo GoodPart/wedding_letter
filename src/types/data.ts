@@ -6,4 +6,6 @@ export interface IMapInfo {
   log: number;
   draggable?: boolean;
   keyboardShortcuts?: boolean;
+  location?: string;
+  mapLocation?: string;
 }
