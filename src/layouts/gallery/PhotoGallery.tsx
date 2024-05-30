@@ -8,7 +8,7 @@ export const PhotoGallery = () => {
     cursor: "pointer",
     objectFit: "contain",
     width: "100px",
-    height: "150px",
+    height: "120px",
   };
   return (
     <Gallery>

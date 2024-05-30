@@ -56,9 +56,9 @@ const Map = () => {
   }
 
   return (
-    <div style={{ width: "inherit", height: "400px" }}>
-      <div>{mapInfo.location}</div>
-      <div>{mapInfo.mapLocation}</div>
+    <MapWrapper style={{ width: "inherit", height: "400px" }}>
+      <div className="t1">{mapInfo.location}</div>
+      <div className="t2">{mapInfo.mapLocation}</div>
       <MapDiv
         style={{
           width: "94%",
@@ -107,11 +107,21 @@ const Map = () => {
           </div>
         </MapButton>
       </MapButtonWrap>
-    </div>
+    </MapWrapper>
   );
 };
 
 export default Map;
+
+const MapWrapper = styled.div`
+  .t1 {
+    font-size: 1.2rem;
+    font-weight: 700;
+  }
+  .t2 {
+    margin-bottom: 36px;
+  }
+`;
 
 const MapButtonWrap = styled.div`
   display: flex;

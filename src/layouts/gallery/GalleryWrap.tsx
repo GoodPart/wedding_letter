@@ -25,9 +25,8 @@ const GalleryWrap = () => {
 export default GalleryWrap;
 
 const ContentWrap = styled.div`
-  margin: 30px 0;
+  margin: 0 0 24px;
   box-sizing: border-box;
-  /* overflow: hidden; */
   display: flex;
   flex-direction: column;
   align-items: center;
