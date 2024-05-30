@@ -95,6 +95,14 @@ function App() {
       {/* <button type="button" onClick={() => handleDeepLink()}>
         링크
       </button> */}
+      {/* <button
+        type="button"
+        onClick={() =>
+          window.location.replace("https://map.kakao.com/link/to/413941493")
+        }
+      >
+        길찾기(카카오지도)
+      </button> */}
       <div
         ref={ref2}
         className={classAdd2 ? "show" : ""}

@@ -53,6 +53,9 @@ const CalendarWrapper = styled.div`
   *:not(abbr) {
     background-color: #f9f9f9;
   }
+  .react-calendar {
+    pointer-events: none;
+  }
   .react-calendar__month-view__weekdays {
     font-size: 14px;
   }

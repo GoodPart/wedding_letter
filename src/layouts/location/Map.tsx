@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import {
   Container as MapDiv,
   NaverMap,
@@ -5,10 +6,18 @@ import {
   useNavermaps,
 } from "react-naver-maps";
 
+import styled from "styled-components";
+
 import { IMapInfo } from "../../types/data";
 import data from "../../data.json";
 
+//map logo
+import mapKakao from "../../assets/images/logo/map_kakao.png";
+import mapNaver from "../../assets/images/logo/map_naver.png";
+import copyLogo from "../../assets/images/logo/copy.png";
+
 const Map = () => {
+  const [copyTxt, setCopyTxt] = useState(false);
   const navermaps = useNavermaps();
 
   const mapInitInfo: IMapInfo = data.mapInitInfo;
@@ -39,6 +48,13 @@ const Map = () => {
     }
   };
 
+  function copyToClipBoard() {
+    window.navigator.clipboard.writeText(
+      "인천 부평구 부평대로278번길 16 부평웨스턴팰리스"
+    );
+    alert("주소를 복사했습니다.");
+  }
+
   return (
     <div style={{ width: "inherit", height: "400px" }}>
       <div>{mapInfo.location}</div>
@@ -66,14 +82,80 @@ const Map = () => {
           />
         </NaverMap>
       </MapDiv>
-      <div className="btn-locationn">
-        <button type="button" onClick={() => handleDeepLink()}>
-          길찾기(네이버지도)
-        </button>
-        {/* <span>네이버 지도</span> <span>카카오 지도</span> */}
-      </div>
+      <MapButtonWrap>
+        <MapButton type="button" onClick={() => handleDeepLink()}>
+          <div>
+            <img src={mapNaver} alt="" />
+            <span>네이버 지도</span>
+          </div>
+        </MapButton>
+        <MapButton
+          type="button"
+          onClick={() =>
+            window.location.replace("https://map.kakao.com/link/to/413941493")
+          }
+        >
+          <div>
+            <img src={mapKakao} alt="" />
+            <span>카카오 지도</span>
+          </div>
+        </MapButton>
+        <MapButton type="button" onClick={() => copyToClipBoard()}>
+          <div>
+            <img src={copyLogo} alt="" />
+            <span>주소 복사</span>
+          </div>
+        </MapButton>
+      </MapButtonWrap>
     </div>
   );
 };
 
 export default Map;
+
+const MapButtonWrap = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  width: 94%;
+  /* padding: 12px 0; */
+
+  > button {
+    width: 33.333%;
+  }
+`;
+
+const MapButton = styled.button`
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding: 8px 0;
+  border: none;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 50%;
+    background-color: #ccc;
+  }
+  &:last-child::after {
+    display: none;
+  }
+
+  div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+  }
+  img {
+    border-radius: 4px;
+    background-color: #fff;
+    width: 24px;
+  }
+`;
