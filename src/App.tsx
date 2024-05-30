@@ -21,6 +21,7 @@ import Title from "./layouts/layer/Title";
 // data
 import data from "./data.json";
 import Vehicle from "./layouts/location/Vehicle";
+import EventInFormation from "./layouts/eventInfo/EventInformation";
 
 function App() {
   const [classAdd1, setClassAdd1] = useState(false);
@@ -164,19 +165,8 @@ function App() {
         <Vehicle />
       </div>
 
-      <div style={{ padding: 24, margin: 4, border: "1px solid #777" }}>
-        (예식장 정보 안내)
-        <br />
-        주차 안내 : 주차는 웨딩홀 대각선 '우림라이온스 밸리' 지하 주차장 이용
-        <br />
-        주차 후 갈산역과 연결된 통로를 통해 이동 가능
-        <br />
-        <br />
-        식사 안내 : 본관 4층에서 뷔페식 으로 진행 됩니다.
-        <br />
-        부족함 없이 즐기실 수 있도록
-        <br />
-        한식을 비롯한 다양한 음식이 준비 되어 있습니다.
+      <div style={{ padding: 24 }}>
+        <EventInFormation />
       </div>
 
       <div style={{ padding: 24, margin: 4, border: "1px solid #777" }}>
