@@ -18,7 +18,7 @@ const EventInFormation = () => {
       <TapArea>
         {eventInfo.map((item, index) => {
           return (
-            <div key={index}>
+            <div key={index} className="tabItem">
               <input
                 type="radio"
                 id={`radio_${index}`}
@@ -64,6 +64,33 @@ const TapWrap = styled.div`
   }
 `;
 
-const TapArea = styled.div``;
+const TapArea = styled.div`
+  display: flex;
+  justify-content: center;
+  width: calc(100% - 12px);
+  padding: 6px;
+  .tabItem {
+    flex: 1;
+  }
+  .tabItem input[type="radio"] {
+    display: none;
+  }
+
+  .tabItem input[type="radio"]:checked + label {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+  .tabItem input[type="radio"] + label:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: coral;
+  }
+`;
 
 const TapContent = styled.div``;
