@@ -22,6 +22,7 @@ import Title from "./layouts/layer/Title";
 import data from "./data.json";
 import Vehicle from "./layouts/location/Vehicle";
 import EventInFormation from "./layouts/eventInfo/EventInformation";
+import Consideration from "./layouts/consideration/Consideration";
 
 function App() {
   const [classAdd1, setClassAdd1] = useState(false);
@@ -167,37 +168,14 @@ function App() {
       </div>
 
       <div style={{ padding: 24 }}>
+        {/* asd */}
         <EventInFormation />
       </div>
 
-      <div style={{ padding: 24, margin: 4, border: "1px solid #777" }}>
-        (축의금 전달 관련) 마음을 전하실 곳<br />
-        참석이 어려우신 분들을 위해
-        <br />
-        계좌번호를 기재하였습니다.
-        <br />
-        너그러운 마음으로 양해 부탁드립니다.
-        <br />
-        <br />
-        <hr />
-        <br />
-        <div>
-          신랑측 계좌번호
-          <br />
-          기업 | 111-123-456789 (복사)
-          <br />
-          박경수
-        </div>
-        <br />
-        <hr />
-        <br />
-        <div>
-          신부측 계좌번호
-          <br />
-          기업 | 111-123-456789 (복사)
-          <br />
-          조예나
-        </div>
+      <div style={{ padding: 24, margin: 4 }}>
+        <Title title="마음을 전하실 곳" titleDecoration="consideration" />
+        <img src={symbol} width={48} style={{ textAlign: "center" }} />
+        <Consideration />
       </div>
       <div style={{ padding: 24, margin: 4, border: "1px solid #777" }}>
         카카오톡 공유하기
