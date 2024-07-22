@@ -53,20 +53,24 @@ const CardLayout = styled.div`
     font-size: 14px;
   }
   .title2 {
-    font-weight: 400;
-    font-size: 1.5rem;
+    font-weight: 600;
+    font-size: 1.1rem;
     line-height: 1.334;
     letter-spacing: 0em;
   }
   .title3 {
     font-weight: 400;
     font-size: 1rem;
-    line-height: 1.5;
+    line-height: 1.15;
     letter-spacing: 0.00938em;
     color: rgba(0, 0, 0, 0.6);
     margin-bottom: 12px;
   }
 
+  .container {
+    /* min-height: px; */
+    margin-bottom: 4px;
+  }
   .bankInfo {
     display: flex;
     justify-content: space-between;
@@ -75,6 +79,7 @@ const CardLayout = styled.div`
     }
     button {
       padding: 2px 12px;
+      border: none;
     }
   }
 `;
@@ -98,7 +103,7 @@ const Card = ({ groupName, name, desc, bankInfo, relationship }: Card) => {
           <button>복사 lib</button>
         </CopyToClipboard>
 
-        <button
+        {/* <button
           type="button"
           onClick={() => copyToClipboard(`${bankInfo.name} ${bankInfo.number}`)}
         >
@@ -111,7 +116,7 @@ const Card = ({ groupName, name, desc, bankInfo, relationship }: Card) => {
           }
         >
           복사 네비게이터2
-        </button>
+        </button> */}
       </div>
     </CardLayout>
   );

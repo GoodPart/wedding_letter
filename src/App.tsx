@@ -24,6 +24,8 @@ import Vehicle from "./layouts/location/Vehicle";
 import EventInFormation from "./layouts/eventInfo/EventInformation";
 import Consideration from "./layouts/consideration/Consideration";
 
+import { CopyToClipboard } from "react-copy-to-clipboard";
+
 function App() {
   const [classAdd1, setClassAdd1] = useState(false);
   const [classAdd2, setClassAdd2] = useState(false);
@@ -177,11 +179,7 @@ function App() {
         <img src={symbol} width={48} style={{ textAlign: "center" }} />
         <Consideration />
       </div>
-      <div style={{ padding: 24, margin: 4, border: "1px solid #777" }}>
-        카카오톡 공유하기
-        <br />
-        링크 주소 복사
-      </div>
+      <div style={{ padding: 24, margin: 4, border: "1px solid #777" }}></div>
     </Wrapper>
   );
 }

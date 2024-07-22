@@ -10,6 +10,7 @@ const Consideration = () => {
       <br />
       너그러운 마음으로 양해 부탁드립니다.
       <br />
+      <br />
       <Card
         groupName
         name="박종오"
