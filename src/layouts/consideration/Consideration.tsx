@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Card from "../../components/card/Card";
+import AOS from "aos";
+import data from "../../data.json";
 
 const Consideration = () => {
+  const { consideration } = data;
+
   return (
     <div>
       참석이 어려우신 분들을 위해
@@ -11,21 +15,41 @@ const Consideration = () => {
       너그러운 마음으로 양해 부탁드립니다.
       <br />
       <br />
-      <Card
-        groupName
-        name="박종오"
-        relationship="부"
-        desc="축하해주셔서 정말 감사합니다."
-        bankInfo={{ name: "기업은행", number: "01076503525" }}
-      />
+      <span style={{ display: "flex", textAlign: "left" }}>
+        <span style={{ fontWeight: 700 }}>#</span> 신랑측
+      </span>
+      {Object.values(consideration.men).map((item, index) => {
+        return (
+          <Card
+            data-aos="fade-up"
+            data-aos-offset="200"
+            data-aos-duration="2000"
+            groupName
+            name={item.name}
+            relationship={item.relationship}
+            desc={item.desc}
+            bankInfo={{ name: item.bank.name, number: item.bank.number }}
+          />
+        );
+      })}
       <br />
-      <Card
-        groupName={false}
-        name="조병철"
-        relationship="부"
-        desc="축하해주셔서 정말 감사합니다222."
-        bankInfo={{ name: "기업", number: 12341234 }}
-      />
+      <span style={{ display: "flex", textAlign: "left" }}>
+        <span style={{ fontWeight: 700 }}>#</span> 신부측
+      </span>
+      {Object.values(consideration.women).map((item, index) => {
+        return (
+          <Card
+            data-aos="fade-up"
+            data-aos-offset="200"
+            data-aos-duration="2000"
+            groupName
+            name={item.name}
+            relationship={item.relationship}
+            desc={item.desc}
+            bankInfo={{ name: item.bank.name, number: item.bank.number }}
+          />
+        );
+      })}
     </div>
   );
 };

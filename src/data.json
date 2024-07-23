@@ -70,5 +70,71 @@
         "한식을 비롯한 다양한 음식이 준비 되어 있습니다."
       ]
     }
-  ]
+  ],
+  "consideration": {
+    "men": [
+      {
+        "order": 1,
+        "name": "박종오",
+        "relationship": "부",
+        "desc": "asdasdasdasdasd",
+        "bank": {
+          "name": "기업은행",
+          "number": "123123123123"
+        }
+      },
+      {
+        "order": 2,
+        "name": "유수자",
+        "relationship": "모",
+        "desc": "ㅂㅈㄷㅂㅈㄷㅂㅈㄷㅂㅈㄷ",
+        "bank": {
+          "name": "국민은행",
+          "number": "123123123123"
+        }
+      },
+      {
+        "order": 3,
+        "name": "박경수",
+        "relationship": "아들",
+        "desc": "asdasdasdasdasd",
+        "bank": {
+          "name": "기업은행",
+          "number": "123123123123"
+        }
+      }
+    ],
+    "women": [
+      {
+        "order": 1,
+        "name": "조병철",
+        "relationship": "부",
+        "desc": "asdasdasdasdasd",
+        "bank": {
+          "name": "기업은행",
+          "number": "123123123123"
+        }
+      },
+      {
+        "order": 2,
+        "name": "김현자",
+        "relationship": "모",
+        "desc": "ㅂㅈㄷㅂㅈㄷㅂㅈㄷㅂㅈㄷ",
+        "bank": {
+          "name": "국민은행",
+          "number": "123123123123"
+        }
+      },
+      {
+        "order": 3,
+        "name": "조예나",
+        "relationship": "딸",
+        "desc": "asdasdasdasdasd",
+        "bank": {
+          "name": "기업은행",
+          "number": "123123123123"
+        }
+      }
+    ]
+  }
 }

@@ -102,7 +102,7 @@ const Map = () => {
         </MapButton>
         <MapButton type="button" onClick={() => copyToClipBoard()}>
           <div>
-            <img src={copyLogo} alt="" />
+            {/* <img src={copyLogo} alt="" /> */}
             <span>주소 복사</span>
           </div>
         </MapButton>
@@ -128,10 +128,14 @@ const MapButtonWrap = styled.div`
   justify-content: space-between;
   margin: 0 auto;
   width: 94%;
+  align-items: center;
+  min-height: 40px;
+  background-color: #f4f4f4;
   /* padding: 12px 0; */
 
   > button {
     width: 33.333%;
+    background-color: transparent;
   }
 `;
 
