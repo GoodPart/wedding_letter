@@ -30,6 +30,7 @@ import EventInFormation from "./layouts/eventInfo/EventInformation";
 import Consideration from "./layouts/consideration/Consideration";
 
 import scrollUp from "./assets/images/symbol/icons8-double-up.gif";
+import Toast from "./components/toast/Toast";
 
 const StickyWrap = styled.div`
   position: relative;
@@ -264,7 +265,14 @@ function App() {
       </button> */}
 
       <div>
-        <Main />
+        <div
+          data-aos="fade-up"
+          data-aos-offset="200"
+          data-aos-duration="1400"
+          data-aos-once={false}
+        >
+          <Main />
+        </div>
         <div
           id="test1"
           style={{
@@ -301,6 +309,15 @@ function App() {
           <img src={symbol} width={48} style={{ textAlign: "center" }} />
           <br />
           <MemberWrap />
+          <div>
+            연락하기
+            <br />
+            <div style={{ display: "flex", justifyContent: "space-evenly" }}>
+              <a href="tel:010-7650-3525">전화</a>
+              <br />
+              <a href="sms:010-7650-3525">문자 전송</a>
+            </div>
+          </div>
         </div>
         <div
           style={{
@@ -378,6 +395,7 @@ function App() {
           공유하기
         </div>
       </div>
+      {/* <Toast></Toast> */}
     </Wrapper>
   );
 }
