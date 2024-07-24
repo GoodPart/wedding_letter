@@ -29,6 +29,8 @@ import Vehicle from "./layouts/location/Vehicle";
 import EventInFormation from "./layouts/eventInfo/EventInformation";
 import Consideration from "./layouts/consideration/Consideration";
 
+import scrollUp from "./assets/images/symbol/icons8-double-up.gif";
+
 const StickyWrap = styled.div`
   position: relative;
   height: 7100px;
@@ -186,11 +188,28 @@ function App() {
     };
   }, [sld1, sld2, sld3, sld4, sld5]);
   return (
-    <Wrapper style={{ maxWidth: "390px", height: "280px", margin: "0 auto" }}>
+    <Wrapper
+      style={{
+        maxWidth: "390px",
+        height: "280px",
+        color: "#888",
+        margin: "0 auto",
+      }}
+    >
       <div
-        style={{ position: "absolute", top: "50%", left: "50%", zIndex: 1000 }}
+        style={{
+          position: "absolute",
+          top: "50%",
+          left: "50%",
+          transform: "translateX(-50%)",
+          zIndex: 1000,
+          display: "flex",
+          flexDirection: "column-reverse",
+          alignItems: "center",
+          gap: 0,
+        }}
       >
-        스크롤
+        <span>위로 스크롤</span> <img style={{ opacity: 0.6 }} src={scrollUp} />
       </div>
       <StickyWrap ref={stickyContainer}>
         <div className="sticky">
@@ -215,7 +234,7 @@ function App() {
             </div>
             <div className="slide disabled" ref={sld4}>
               <div className="big-text">
-                <p>우리의 위대한 결혼식이 시작된다</p>
+                <p>위대한 결혼식이 시작된다</p>
               </div>
             </div>
 
