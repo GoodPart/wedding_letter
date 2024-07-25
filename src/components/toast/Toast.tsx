@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 const ToastLayout = styled.div`
   position: fixed;
@@ -7,17 +7,26 @@ const ToastLayout = styled.div`
   right: 0;
   bottom: 0;
   left: 0;
+  transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
   z-index: 10000;
-  background-color: rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(4px);
+  opacity: 1;
 
   .dimed {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
   }
   .wrap {
     flex-direction: column;
-    width: calc(100% - 24px);
     position: absolute;
-    bottom: 12px;
+    width: calc(100% - 24px);
+
+    animation-name: modalUp;
+    animation-duration: 0.6s;
+    animation-fill-mode: forwards;
+    animation-delay: 0.1s;
     left: 50%;
     transform: translateX(-50%);
     min-height: 48px;
@@ -25,15 +34,16 @@ const ToastLayout = styled.div`
     box-shadow: 4px 4px 14px 0px rgba(0, 0, 0, 0.4);
     -webkit-box-shadow: 4px 4px 14px 0px rgba(0, 0, 0, 0.4);
     -moz-box-shadow: 4px 4px 14px 0px rgba(0, 0, 0, 0.4);
-    /* background-color: rgba(0, 0, 0, 0.1); */
-    backdrop-filter: blur(4px);
+    background-color: rgba(0, 0, 0, 0.4);
     display: flex;
     align-items: center;
   }
   select {
     margin: 12px;
     width: calc(100% - 24px);
-    min-height: 48px;
+    height: 48px;
+    border-radius: 8px;
+    padding: 5px 30px 5px 10px;
 
     & + select {
       margin-top: 0;
@@ -41,15 +51,71 @@ const ToastLayout = styled.div`
   }
 
   a {
+    pointer-events: none;
+    cursor: not-allowed;
     margin: 0 12px 12px;
     display: flex;
     width: calc(100% - 24px);
     min-height: 48px;
-    background-color: #6b6b6b;
-    border-radius: 8px;
+    background-color: gray;
+    border-radius: 4px;
+    transition: background-color 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-weight: 700;
+    color: #fff;
 
     &.active {
-      background-color: skyblue;
+      pointer-events: all;
+      cursor: default;
+      background-color: coral;
+    }
+  }
+
+  .type {
+    display: flex;
+    justify-content: space-between;
+    width: calc(100% - 24px);
+    height: 48px;
+    margin-bottom: 12px;
+    border-radius: 8px;
+    overflow: hidden;
+
+    > div {
+      width: 100%;
+      height: 100%;
+      background-color: gray;
+    }
+    input[type="radio"] {
+      display: none;
+    }
+    input[type="radio"] + label {
+      font-weight: 700;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      transition: background-color 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
+    }
+    input[type="radio"]:checked + label {
+      color: #fff;
+      background-color: coral;
+    }
+  }
+
+  @keyframes modalUp {
+    0% {
+      bottom: -160px;
+    }
+    70% {
+      bottom: 16px;
+    }
+    100% {
+      bottom: 24px;
     }
   }
 `;
@@ -85,28 +151,42 @@ const data = {
   ],
 };
 
-const Toast = () => {
+export interface IToast {
+  state: boolean;
+  onBlur: () => void;
+}
+
+const Toast = ({ state, onBlur }: IToast) => {
   const [select1, setSelect1] = useState(null);
   const [select2, setSelect2] = useState(null);
-  const [change, setChange] = useState(false);
+  const [select3, setSelect3] = useState<number>(0);
 
   const onChange = (event: any) => {
     const getValue = event.target.value;
     setSelect1(getValue === "" ? null : getValue);
     setSelect2(null);
+    setSelect3(0);
   };
   const onChange2 = (event: any) => {
     const getValue = event.target.value;
     setSelect2(getValue === "" ? null : getValue);
   };
+  const onChange3 = (event: any) => {
+    const getValue = event.target.value;
+    console.log(getValue);
+    setSelect3(getValue);
+  };
 
   useEffect(() => {
     document.body.style.overflow = "hidden";
+    return () => {
+      document.body.removeAttribute("style");
+    };
   }, []);
 
   return (
     <ToastLayout>
-      <div className="dimed"></div>
+      <div className="dimed" onClick={onBlur}></div>
       <div className="wrap">
         <select onChange={(event) => onChange(event)}>
           <option value="">선택</option>
@@ -120,26 +200,56 @@ const Toast = () => {
           <option value="" selected={select2 === null}>
             선택
           </option>
-          ;
-          {data && select1 !== null ? (
-            Object.values(data[`${select1}`]).map((item: any) => {
-              const name = item.name;
-              return <option value={item.phone}>{item.name}</option>;
+          {data !== null && select1 !== null ? (
+            Object.values(data[`${select1}`]).map((item: any, index) => {
+              return (
+                <option value={item.phone} key={index}>
+                  {item.name} - {item.phone}
+                </option>
+              );
             })
           ) : (
             <></>
           )}
         </select>
-
-        {/* <a href={`tel:${select2}`}>
-          {select1 != null && select2 != null ? "ok" : "not"} - 확인
-        </a> */}
-        <a
-          href={"#none"}
-          onClick={() => alert(`${select1},${select2}`)}
-          className={select1 != null && select2 != null ? "active" : ""}
+        <div
+          className="type"
+          style={{ display: select2 === null ? "none" : "flex" }}
         >
-          {select1 != null && select2 != null ? "ok" : "not"} - 확인
+          <div>
+            <input
+              type="radio"
+              name="radio1"
+              value={1}
+              id="radios1"
+              onChange={(e) => onChange3(e)}
+              checked={select3 == 1}
+            />
+            <label htmlFor="radios1">전화</label>
+          </div>
+          <div>
+            <input
+              type="radio"
+              name="radio1"
+              value={2}
+              id="radios2"
+              onChange={(e) => onChange3(e)}
+              checked={select3 == 2}
+            />
+            <label htmlFor="radios2">메세지</label>
+          </div>
+        </div>
+
+        <a
+          href={`${select3 == 1 ? "tel" : "sms"}:${select2}`}
+          onClick={onBlur}
+          className={
+            select1 != null && select2 != null && select3 != 0 ? "active" : ""
+          }
+        >
+          {select1 != null && select2 != null && select3 != 0
+            ? "연락하기"
+            : "선택 해주세요"}
         </a>
       </div>
     </ToastLayout>

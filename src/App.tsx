@@ -6,10 +6,9 @@ import Map from "./layouts/location/Map";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-import { handleScrolls } from "./hooks/ScrollMasic";
-
 import symbol from "./assets/images/symbol/icons8-flower-bouquet-96.png";
 // component
+import Intro from "./layouts/intro/Intro";
 import Main from "./layouts/main/Main";
 import GreetingWrap from "./layouts/greeting/Greeting";
 import InvittingWrap from "./layouts/invitting/Innvitting";
@@ -24,59 +23,11 @@ import CalendarWrap from "./layouts/calendar/Calendar";
 import Title from "./layouts/layer/Title";
 
 // data
-import data from "./data.json";
 import Vehicle from "./layouts/location/Vehicle";
 import EventInFormation from "./layouts/eventInfo/EventInformation";
 import Consideration from "./layouts/consideration/Consideration";
 
-import scrollUp from "./assets/images/symbol/icons8-double-up.gif";
 import Toast from "./components/toast/Toast";
-
-const StickyWrap = styled.div`
-  position: relative;
-  height: 7100px;
-  background-color: #ccc;
-
-  .sticky {
-    position: sticky;
-    top: 0;
-    width: 100%;
-    height: 100vh;
-    background-color: #fff;
-  }
-  .slide-container {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-  }
-  .slide {
-    position: absolute;
-    z-index: 0;
-    transform: translateY(60px);
-    &.enabled {
-      display: block;
-    }
-    &.disabled {
-      display: none;
-    }
-  }
-  p {
-    word-break: keep-all;
-    padding: 0 2rem;
-    font-size: 45px;
-    font-weight: bold;
-    line-height: 1.35;
-    letter-spacing: -1.5px;
-    word-spacing: 1.5px;
-    text-align: center;
-    background: linear-gradient(to bottom, #000, #aaa);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-`;
 
 function App() {
   // const handleDeepLink = () => {
@@ -100,94 +51,16 @@ function App() {
   //     );
   //   }
   // };
+  const [toastData, setToastData] = useState<boolean>(false);
+  const toasting = () => {
+    setToastData((toastData) => !toastData);
+  };
 
-  const stickyContainer = useRef<HTMLDivElement>(null);
-  const sld1 = useRef<HTMLDivElement | null>(null);
-  const sld2 = useRef<HTMLDivElement>(null);
-  const sld3 = useRef<HTMLDivElement>(null);
-  const sld4 = useRef<HTMLDivElement>(null);
-  const sld5 = useRef<HTMLDivElement>(null);
   useEffect(() => {
     AOS.init();
 
-    window.addEventListener("scroll", () =>
-      handleScrolls(
-        [sld1, sld2, sld3, sld4, sld5],
-        [
-          {
-            start: 300,
-            end: 1300,
-            tStart: 60,
-            tEnd: -60,
-          },
-          {
-            start: 1600,
-            end: 2600,
-            tStart: 60,
-            tEnd: -60,
-          },
-          {
-            start: 2900,
-            end: 3900,
-            tStart: 60,
-            tEnd: -60,
-          },
-          {
-            start: 4200,
-            end: 5200,
-            tStart: 60,
-            tEnd: -60,
-          },
-          {
-            start: 5500,
-            end: 6100,
-            tStart: 60,
-            tEnd: 0,
-          },
-        ]
-      )
-    );
-
-    return () => {
-      window.removeEventListener("scroll", () =>
-        handleScrolls(
-          [sld1, sld2, sld3, sld4, sld5],
-          [
-            {
-              start: 300,
-              end: 1300,
-              tStart: 60,
-              tEnd: -60,
-            },
-            {
-              start: 1600,
-              end: 2600,
-              tStart: 60,
-              tEnd: -60,
-            },
-            {
-              start: 2900,
-              end: 3900,
-              tStart: 60,
-              tEnd: -60,
-            },
-            {
-              start: 4200,
-              end: 5200,
-              tStart: 60,
-              tEnd: -60,
-            },
-            {
-              start: 5500,
-              end: 6100,
-              tStart: 60,
-              tEnd: 0,
-            },
-          ]
-        )
-      );
-    };
-  }, [sld1, sld2, sld3, sld4, sld5]);
+    return () => {};
+  }, []);
   return (
     <Wrapper
       style={{
@@ -197,60 +70,10 @@ function App() {
         margin: "0 auto",
       }}
     >
-      <div
-        style={{
-          position: "absolute",
-          top: "50%",
-          left: "50%",
-          transform: "translateX(-50%)",
-          zIndex: 1000,
-          display: "flex",
-          flexDirection: "column-reverse",
-          alignItems: "center",
-          gap: 0,
-        }}
-      >
-        <span>위로 스크롤</span> <img style={{ opacity: 0.6 }} src={scrollUp} />
-      </div>
-      <StickyWrap ref={stickyContainer}>
-        <div className="sticky">
-          <div className="slide-container">
-            <div className="slide disabled" ref={sld1}>
-              <div className="big-text">
-                <p>올것이 왔다</p>
-              </div>
-            </div>
-            <div className="slide disabled" ref={sld2}>
-              <div className="big-text">
-                <p style={{ color: "#fff" }}>되돌릴 수 없는 운명의 날</p>
-              </div>
-            </div>
-            <div className="slide disabled" ref={sld3}>
-              <div className="big-text">
-                <p>
-                  역사를 바꿀
-                  <br />그 순간
-                </p>
-              </div>
-            </div>
-            <div className="slide disabled" ref={sld4}>
-              <div className="big-text">
-                <p>위대한 결혼식이 시작된다</p>
-              </div>
-            </div>
+      <br />
+      <br />
 
-            <div className="slide disabled" ref={sld5}>
-              <div className="big-text">
-                <p>
-                  2024.11.16
-                  <br />
-                  13:20
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </StickyWrap>
+      <Intro />
 
       {/* <button type="button" onClick={() => handleDeepLink()}>
         링크
@@ -310,13 +133,18 @@ function App() {
           <br />
           <MemberWrap />
           <div>
-            연락하기
+            <div
+              style={{ border: "2px dashed #ccc", marginTop: 24 }}
+              onClick={toasting}
+            >
+              연락하기
+            </div>
             <br />
-            <div style={{ display: "flex", justifyContent: "space-evenly" }}>
+            {/* <div style={{ display: "flex", justifyContent: "space-evenly" }}>
               <a href="tel:010-7650-3525">전화</a>
               <br />
               <a href="sms:010-7650-3525">문자 전송</a>
-            </div>
+            </div> */}
           </div>
         </div>
         <div
@@ -365,6 +193,7 @@ function App() {
           <NavermapsProvider
             ncpClientId={`${process.env.REACT_APP_NAVER_MAP_API_KEY}`}
           >
+            {/* <>@@@지도 영역@@@</> */}
             <Map />
           </NavermapsProvider>
           <Vehicle />
@@ -395,7 +224,7 @@ function App() {
           공유하기
         </div>
       </div>
-      {/* <Toast></Toast> */}
+      {toastData && <Toast state={toastData} onBlur={toasting}></Toast>}
     </Wrapper>
   );
 }
