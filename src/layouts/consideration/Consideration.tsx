@@ -1,7 +1,20 @@
 import React, { useEffect, useState } from "react";
+import styled from "styled-components";
 import Card from "../../components/card/Card";
-import AOS from "aos";
 import data from "../../data.json";
+
+const IndexTitle = styled.div`
+  display: flex;
+  text-align: left;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+
+  span {
+    color: #000;
+    margin-right: 4px;
+  }
+`;
 
 const Consideration = () => {
   const { consideration } = data;
@@ -15,9 +28,9 @@ const Consideration = () => {
       너그러운 마음으로 양해 부탁드립니다.
       <br />
       <br />
-      <span style={{ display: "flex", textAlign: "left" }}>
+      <IndexTitle>
         <span style={{ fontWeight: 700 }}>#</span> 신랑측
-      </span>
+      </IndexTitle>
       {Object.values(consideration.men).map((item, index) => {
         return (
           <Card
@@ -33,9 +46,9 @@ const Consideration = () => {
         );
       })}
       <br />
-      <span style={{ display: "flex", textAlign: "left" }}>
+      <IndexTitle>
         <span style={{ fontWeight: 700 }}>#</span> 신부측
-      </span>
+      </IndexTitle>
       {Object.values(consideration.women).map((item, index) => {
         return (
           <Card

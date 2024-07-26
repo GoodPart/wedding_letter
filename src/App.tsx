@@ -29,6 +29,8 @@ import Consideration from "./layouts/consideration/Consideration";
 
 import Toast from "./components/toast/Toast";
 
+import KakaoShareButton from "./components/share/Kakao";
+
 function App() {
   // const handleDeepLink = () => {
   //   const isIos = window.navigator.userAgent.match(/ipad|iphone/i) !== null;
@@ -57,7 +59,9 @@ function App() {
   };
 
   useEffect(() => {
-    AOS.init();
+    AOS.init({
+      once: true,
+    });
 
     return () => {};
   }, []);
@@ -75,25 +79,8 @@ function App() {
 
       <Intro />
 
-      {/* <button type="button" onClick={() => handleDeepLink()}>
-        링크
-      </button> */}
-      {/* <button
-        type="button"
-        onClick={() =>
-          window.location.replace("https://map.kakao.com/link/to/413941493")
-        }
-      >
-        길찾기(카카오지도)
-      </button> */}
-
-      <div>
-        <div
-          data-aos="fade-up"
-          data-aos-offset="200"
-          data-aos-duration="1400"
-          data-aos-once={false}
-        >
+      <div className="content">
+        <div data-aos="fade-up" data-aos-offset="200" data-aos-duration="1400">
           <Main />
         </div>
         <div
@@ -105,7 +92,6 @@ function App() {
           data-aos="fade-up"
           data-aos-offset="200"
           data-aos-duration="1400"
-          data-aos-once={false}
         >
           <img src={symbol} width={48} style={{ textAlign: "center" }} />
           <GreetingWrap />
@@ -117,7 +103,6 @@ function App() {
           data-aos="fade-up"
           data-aos-offset="200"
           data-aos-duration="1400"
-          data-aos-once={false}
         >
           <img src={symbol} width={48} style={{ textAlign: "center" }} />
           <InvittingWrap />
@@ -127,24 +112,22 @@ function App() {
           data-aos="fade-up"
           data-aos-offset="200"
           data-aos-duration="1400"
-          data-aos-once={false}
         >
           <img src={symbol} width={48} style={{ textAlign: "center" }} />
           <br />
           <MemberWrap />
           <div>
             <div
-              style={{ border: "2px dashed #ccc", marginTop: 24 }}
+              style={{
+                border: "2px dashed #ccc",
+                marginTop: 24,
+                cursor: "pointer",
+              }}
               onClick={toasting}
             >
               연락하기
             </div>
             <br />
-            {/* <div style={{ display: "flex", justifyContent: "space-evenly" }}>
-              <a href="tel:010-7650-3525">전화</a>
-              <br />
-              <a href="sms:010-7650-3525">문자 전송</a>
-            </div> */}
           </div>
         </div>
         <div
@@ -156,7 +139,6 @@ function App() {
           data-aos="fade-up"
           data-aos-offset="200"
           data-aos-duration="1400"
-          data-aos-once={false}
         >
           <Title title="날짜" titleDecoration="day infomation" />
           <hr />
@@ -171,7 +153,6 @@ function App() {
           data-aos="fade-up"
           data-aos-offset="200"
           data-aos-duration="1400"
-          data-aos-once={false}
         >
           <Title title="갤러리" titleDecoration="Gallery" />
           <GalleryWrap />
@@ -181,7 +162,6 @@ function App() {
           data-aos="fade-up"
           data-aos-offset="200"
           data-aos-duration="1400"
-          data-aos-once={false}
           id="wrap"
           style={{
             position: "relative",
@@ -194,6 +174,7 @@ function App() {
             ncpClientId={`${process.env.REACT_APP_NAVER_MAP_API_KEY}`}
           >
             {/* <>@@@지도 영역@@@</> */}
+            {/* 맵 때문에 null object 에러 발생 */}
             <Map />
           </NavermapsProvider>
           <Vehicle />
@@ -204,7 +185,6 @@ function App() {
           data-aos="fade-up"
           data-aos-offset="200"
           data-aos-duration="1400"
-          data-aos-once={false}
         >
           <EventInFormation />
         </div>
@@ -214,14 +194,13 @@ function App() {
           data-aos="fade-up"
           data-aos-offset="200"
           data-aos-duration="1400"
-          data-aos-once={false}
         >
           <Title title="마음을 전하실 곳" titleDecoration="consideration" />
           <img src={symbol} width={48} style={{ textAlign: "center" }} />
           <Consideration />
         </div>
         <div style={{ padding: 24, margin: 4, border: "1px solid #777" }}>
-          공유하기
+          <KakaoShareButton />
         </div>
       </div>
       {toastData && <Toast state={toastData} onBlur={toasting}></Toast>}

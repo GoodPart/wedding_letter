@@ -32,7 +32,7 @@ const copyToClipboard = async (text: string) => {
 };
 
 const CardLayout = styled.div`
-  background-color: hsla(215, 15%, 97%, 0.5);
+  background-color: hsla(215, 15%, 97%, 0.6);
   border-radius: 4px;
   box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
     0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 3px 6px 0px rgba(0, 0, 0, 0.12);
@@ -41,34 +41,34 @@ const CardLayout = styled.div`
   color: rgba(0, 0, 0, 0.87);
   text-align: left;
   padding: 16px;
-  margin-bottom: 24px;
+  margin-bottom: 12px;
 
-  .title1 {
+  /* .title1 {
     font-weight: 400;
     font-size: 0.8rem;
     line-height: 1.5;
     letter-spacing: 0.00938em;
     margin-bottom: 0.35em;
     color: rgba(0, 0, 0, 0.6);
-  }
+  } */
   .title2 {
-    font-weight: 600;
+    font-weight: 700;
     font-size: 1rem;
     line-height: 1.334;
     letter-spacing: 0em;
   }
   .title3 {
     font-weight: 400;
-    font-size: 1rem;
+    font-size: 0.9rem;
     line-height: 1.15;
     letter-spacing: 0.00938em;
     color: rgba(0, 0, 0, 0.6);
-    margin-bottom: 4px;
+    margin-bottom: 0px;
   }
 
   .container {
     /* min-height: px; */
-    margin-bottom: 4px;
+    /* margin-bottom: 4px; */
   }
   .bankInfo {
     display: flex;
