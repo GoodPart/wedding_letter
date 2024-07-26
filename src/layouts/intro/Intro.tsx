@@ -7,7 +7,7 @@ import scrollUp from "../../assets/images/symbol/icons8-double-up.gif";
 
 const StickyWrap = styled.div`
   position: relative;
-  height: 7100px;
+  height: 7700px;
   background-color: #ccc;
 
   .sticky {
@@ -106,9 +106,9 @@ const Intro = () => {
           },
           {
             start: 5500,
-            end: 6100,
+            end: 6500,
             tStart: 60,
-            tEnd: 0,
+            tEnd: -60,
           },
         ]
       )
@@ -145,9 +145,9 @@ const Intro = () => {
             },
             {
               start: 5500,
-              end: 6100,
+              end: 6500,
               tStart: 60,
-              tEnd: 0,
+              tEnd: -60,
             },
           ]
         )
