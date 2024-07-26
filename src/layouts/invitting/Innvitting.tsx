@@ -6,9 +6,9 @@ const InvittingWrap = () => {
   const { invitting } = data;
   return (
     <div>
-      {invitting.map((item) => {
+      {invitting.map((item, index) => {
         const setItem = item === "" ? <br /> : item;
-        return <div>{setItem}</div>;
+        return <div key={index}>{setItem}</div>;
       })}
     </div>
   );

@@ -30,6 +30,7 @@ import Consideration from "./layouts/consideration/Consideration";
 import Toast from "./components/toast/Toast";
 
 import KakaoShareButton from "./components/share/Kakao";
+import { DefaultButton } from "./components/share/DefaultButton";
 
 function App() {
   // const handleDeepLink = () => {
@@ -164,6 +165,7 @@ function App() {
           data-aos-duration="1400"
           id="wrap"
           style={{
+            padding: 24,
             position: "relative",
             maxWidth: "390px",
             margin: "0 auto",
@@ -199,8 +201,17 @@ function App() {
           <img src={symbol} width={48} style={{ textAlign: "center" }} />
           <Consideration />
         </div>
-        <div style={{ padding: 24, margin: 4, border: "1px solid #777" }}>
-          <KakaoShareButton />
+        <div
+          style={{
+            padding: "24px 24px 48px",
+            // borderTop: "1px solid #777",
+            backgroundColor: "#444",
+            display: "flex",
+            justifyContent: "center",
+            gap: 16,
+          }}
+        >
+          <KakaoShareButton /> <DefaultButton />
         </div>
       </div>
       {toastData && <Toast state={toastData} onBlur={toasting}></Toast>}

@@ -6,9 +6,9 @@ const GreetingWrap = () => {
   const { greeting } = data;
   return (
     <div>
-      {greeting.map((item) => {
+      {greeting.map((item, index) => {
         const setItem = item === "" ? <br /> : item;
-        return <div>{setItem}</div>;
+        return <div key={index}>{setItem}</div>;
       })}
     </div>
   );

@@ -43,14 +43,6 @@ const CardLayout = styled.div`
   padding: 16px;
   margin-bottom: 12px;
 
-  /* .title1 {
-    font-weight: 400;
-    font-size: 0.8rem;
-    line-height: 1.5;
-    letter-spacing: 0.00938em;
-    margin-bottom: 0.35em;
-    color: rgba(0, 0, 0, 0.6);
-  } */
   .title2 {
     font-weight: 700;
     font-size: 1rem;

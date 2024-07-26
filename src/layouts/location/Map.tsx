@@ -61,7 +61,7 @@ const Map = () => {
       <div className="t2">{mapInfo.mapLocation}</div>
       <MapDiv
         style={{
-          width: "94%",
+          width: "100%",
           height: "260px",
           margin: "0 auto",
         }}
@@ -127,7 +127,7 @@ const MapButtonWrap = styled.div`
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
-  width: 94%;
+  width: 100%;
   align-items: center;
   min-height: 40px;
   background-color: #f4f4f4;

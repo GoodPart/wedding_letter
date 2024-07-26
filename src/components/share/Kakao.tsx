@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import ButtonStyle from "./style";
 
 declare global {
   interface Window {
@@ -43,7 +44,11 @@ const KakaoShareButton: React.FC = () => {
     }
   };
 
-  return <button onClick={shareKakao}>카카오톡 공유하기</button>;
+  return (
+    <ButtonStyle bg="#fae100" color="#371d1e" onClick={shareKakao}>
+      카카오톡 공유하기
+    </ButtonStyle>
+  );
 };
 
 export default KakaoShareButton;

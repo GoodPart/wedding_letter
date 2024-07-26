@@ -53,10 +53,16 @@ const EventInFormation = () => {
 export default EventInFormation;
 
 const TapWrap = styled.div`
-  border: 1px solid #333;
+  margin: 24px auto 0;
+  background-color: hsla(215, 15%, 97%, 0.6);
+  border-radius: 4px;
+  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 3px 6px 0px rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+  min-width: 275px;
 
   .tap__content {
-    padding: 12px;
+    padding: 12px 12px 36px;
   }
   .tap__content .content {
     display: none;

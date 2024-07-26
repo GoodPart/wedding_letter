@@ -6,7 +6,7 @@ import data from "../../data.json";
 const IndexTitle = styled.div`
   display: flex;
   text-align: left;
-  font-family: Arial, Helvetica, sans-serif;
+  /* font-family: Arial, Helvetica, sans-serif; */
   font-weight: 700;
   font-size: 1.1rem;
 
@@ -28,12 +28,11 @@ const Consideration = () => {
       너그러운 마음으로 양해 부탁드립니다.
       <br />
       <br />
-      <IndexTitle>
-        <span style={{ fontWeight: 700 }}>#</span> 신랑측
-      </IndexTitle>
+      <IndexTitle>신랑측</IndexTitle>
       {Object.values(consideration.men).map((item, index) => {
         return (
           <Card
+            key={index}
             data-aos="fade-up"
             data-aos-offset="200"
             data-aos-duration="2000"
@@ -46,12 +45,11 @@ const Consideration = () => {
         );
       })}
       <br />
-      <IndexTitle>
-        <span style={{ fontWeight: 700 }}>#</span> 신부측
-      </IndexTitle>
+      <IndexTitle>신부측</IndexTitle>
       {Object.values(consideration.women).map((item, index) => {
         return (
           <Card
+            key={index}
             data-aos="fade-up"
             data-aos-offset="200"
             data-aos-duration="2000"

@@ -11,7 +11,7 @@ const MemberWrap = () => {
           item.gap === "딸" ? <>&nbsp;{item.gap}&nbsp;</> : <>{item.gap}</>;
         return (
           <>
-            <JustifyItem>
+            <JustifyItem key={index}>
               {/* &nbsp; */}
               {item.p1} &#183; {item.p2}의 <strong>{gapType}</strong> {item.p3}
             </JustifyItem>
