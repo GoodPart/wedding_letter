@@ -75,41 +75,30 @@ function App() {
         margin: "0 auto",
       }}
     >
-      <br />
-      <br />
-
       <Intro />
 
       <div className="content">
         <div data-aos="fade-up" data-aos-offset="200" data-aos-duration="1400">
           <Main />
         </div>
-        <div
-          id="test1"
-          style={{
-            padding: 24,
-            margin: 4,
-          }}
+        <section
           data-aos="fade-up"
           data-aos-offset="200"
           data-aos-duration="1400"
         >
           <img src={symbol} width={48} style={{ textAlign: "center" }} />
           <GreetingWrap />
-        </div>
+        </section>
 
-        <div
-          id="test2"
-          style={{ padding: 24, margin: 4 }}
+        <section
           data-aos="fade-up"
           data-aos-offset="200"
           data-aos-duration="1400"
         >
           <img src={symbol} width={48} style={{ textAlign: "center" }} />
           <InvittingWrap />
-        </div>
-        <div
-          style={{ padding: 24, margin: 4 }}
+        </section>
+        <section
           data-aos="fade-up"
           data-aos-offset="200"
           data-aos-duration="1400"
@@ -130,11 +119,11 @@ function App() {
             </div>
             <br />
           </div>
-        </div>
-        <div
+        </section>
+        <section
           style={{
             padding: "24px 48px",
-            margin: 4,
+
             backgroundColor: "#f9f9f9",
           }}
           data-aos="fade-up"
@@ -148,24 +137,22 @@ function App() {
           <br />
           <hr />
           <br />
-        </div>
-        <div
-          style={{ padding: 24, margin: 4 }}
+        </section>
+        <section
           data-aos="fade-up"
           data-aos-offset="200"
           data-aos-duration="1400"
         >
           <Title title="갤러리" titleDecoration="Gallery" />
           <GalleryWrap />
-        </div>
+        </section>
 
-        <div
+        <section
           data-aos="fade-up"
           data-aos-offset="200"
           data-aos-duration="1400"
           id="wrap"
           style={{
-            padding: 24,
             position: "relative",
             maxWidth: "390px",
             margin: "0 auto",
@@ -180,19 +167,17 @@ function App() {
             <Map />
           </NavermapsProvider>
           <Vehicle />
-        </div>
+        </section>
 
-        <div
-          style={{ padding: 24 }}
+        <section
           data-aos="fade-up"
           data-aos-offset="200"
           data-aos-duration="1400"
         >
           <EventInFormation />
-        </div>
+        </section>
 
-        <div
-          style={{ padding: 24, margin: 4 }}
+        <section
           data-aos="fade-up"
           data-aos-offset="200"
           data-aos-duration="1400"
@@ -200,8 +185,8 @@ function App() {
           <Title title="마음을 전하실 곳" titleDecoration="consideration" />
           <img src={symbol} width={48} style={{ textAlign: "center" }} />
           <Consideration />
-        </div>
-        <div
+        </section>
+        <section
           style={{
             padding: "24px 24px 48px",
             // borderTop: "1px solid #777",
@@ -211,8 +196,9 @@ function App() {
             gap: 16,
           }}
         >
-          <KakaoShareButton /> <DefaultButton />
-        </div>
+          <DefaultButton />
+          <KakaoShareButton />
+        </section>
       </div>
       {toastData && <Toast state={toastData} onBlur={toasting}></Toast>}
     </Wrapper>
@@ -226,6 +212,12 @@ const Wrapper = styled.div`
     text-align: center;
     line-height: 2rem;
     font-family: "Serif_KR_light";
+    font-size: 14px;
+  }
+
+  section {
+    padding: 24px;
+    line-height: 2rem;
     font-size: 14px;
   }
 `;
