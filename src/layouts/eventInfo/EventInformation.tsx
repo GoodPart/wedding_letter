@@ -62,10 +62,11 @@ const TapWrap = styled.div`
   min-width: 275px;
 
   .tap__content {
-    padding: 12px 12px 36px;
+    padding: 24px 12px;
   }
   .tap__content .content {
     display: none;
+    font-size: 0.8rem;
 
     &.show {
       display: block;
