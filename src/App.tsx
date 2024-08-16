@@ -67,14 +67,7 @@ function App() {
     return () => {};
   }, []);
   return (
-    <Wrapper
-      style={{
-        maxWidth: "390px",
-        height: "280px",
-        color: "#888",
-        margin: "0 auto",
-      }}
-    >
+    <Wrapper>
       <Intro />
 
       <div className="content">
@@ -110,6 +103,7 @@ function App() {
             <div
               style={{
                 border: "2px dashed #ccc",
+                backgroundColor: "rgb(249, 249, 249)",
                 marginTop: 24,
                 cursor: "pointer",
               }}
@@ -208,6 +202,10 @@ function App() {
 export default App;
 
 const Wrapper = styled.div`
+  max-width: 390px;
+  height: 280px;
+  color: #888;
+  margin: 0 auto;
   & > div {
     text-align: center;
     line-height: 2rem;

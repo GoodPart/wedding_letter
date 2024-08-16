@@ -55,6 +55,7 @@ const VehicleWrap = styled.div`
     font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
     font-size: 1rem;
     font-weight: 900;
+    color: #333;
   }
   .title + div {
     line-height: 1rem;

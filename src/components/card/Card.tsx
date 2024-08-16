@@ -32,10 +32,11 @@ const copyToClipboard = async (text: string) => {
 };
 
 const CardLayout = styled.div`
-  background-color: hsla(215, 15%, 97%, 0.6);
-  border-radius: 4px;
-  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
-    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 3px 6px 0px rgba(0, 0, 0, 0.12);
+  /* background-color: hsla(215, 15%, 97%, 0.6); */
+  /* border-radius: 8px; */
+  border-top: 1px dashed #ddd;
+  /* box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 3px 6px 0px rgba(0, 0, 0, 0.12); */
   overflow: hidden;
   min-width: 275px;
   color: rgba(0, 0, 0, 0.87);
