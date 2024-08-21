@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled, { css } from "styled-components";
+import data from "../../data.json";
 
 const ToastLayout = styled.div`
   position: fixed;
@@ -44,6 +45,17 @@ const ToastLayout = styled.div`
     height: 48px;
     border-radius: 8px;
     padding: 5px 30px 5px 10px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    background-image: linear-gradient(45deg, transparent 50%, coral 50%),
+      linear-gradient(135deg, coral 50%, transparent 50%),
+      linear-gradient(to right, #ccc, #ccc);
+    background-position: calc(100% - 18px) calc(1em + 8px),
+      calc(100% - 13px) calc(1em + 8px), calc(100% - 2.5em) 0.5em;
+    background-size: 5px 5px, 5px 5px, 1px 2.5em;
+    background-repeat: no-repeat;
 
     & + select {
       margin-top: 0;
@@ -120,36 +132,37 @@ const ToastLayout = styled.div`
   }
 `;
 
-const data = {
-  men: [
-    {
-      name: "박종오",
-      phone: "01033143525",
-    },
-    {
-      name: "유수자",
-      phone: "01034333525",
-    },
-    {
-      name: "박경수",
-      phone: "01076503525",
-    },
-  ],
-  women: [
-    {
-      name: "조병철",
-      phone: "01011112222",
-    },
-    {
-      name: "김현자",
-      phone: "01012344321",
-    },
-    {
-      name: "조예나",
-      phone: "01099118315",
-    },
-  ],
-};
+const { memberInfo } = data;
+// const data = {
+//   men: [
+//     {
+//       name: "박종오",
+//       phone: "01033143525",
+//     },
+//     {
+//       name: "유수자",
+//       phone: "01034333525",
+//     },
+//     {
+//       name: "박경수",
+//       phone: "01076503525",
+//     },
+//   ],
+//   women: [
+//     {
+//       name: "조병철",
+//       phone: "01089398315",
+//     },
+//     {
+//       name: "김현자",
+//       phone: "01024858315",
+//     },
+//     {
+//       name: "조예나",
+//       phone: "01099118315",
+//     },
+//   ],
+// };
 
 export interface IToast {
   state: boolean;
@@ -173,7 +186,6 @@ const Toast = ({ state, onBlur }: IToast) => {
   };
   const onChange3 = (event: any) => {
     const getValue = event.target.value;
-    console.log(getValue);
     setSelect3(getValue);
   };
 
@@ -200,8 +212,9 @@ const Toast = ({ state, onBlur }: IToast) => {
           <option value="" selected={select2 === null}>
             선택
           </option>
-          {data !== null && select1 !== null ? (
-            Object.values(data[`${select1}`]).map((item: any, index) => {
+          {memberInfo !== null && select1 !== null ? (
+            Object.values(memberInfo[`${select1}`]).map((item: any, index) => {
+              if (typeof item === "string") return;
               return (
                 <option value={item.phone} key={index}>
                   {item.name} - {item.phone}

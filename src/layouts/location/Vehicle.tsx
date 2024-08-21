@@ -14,10 +14,6 @@ const Vehicle = () => {
         <div className="title">자차 안내</div>
         <div>고속도로 부평 I/C 주차시설 1500대</div>
       </div>
-      <div>
-        <div className="title">주차 안내</div>
-        <div>인천1호선 갈산역2번출구 1분거리</div>
-      </div>
     </VehicleWrap>
   );
 };

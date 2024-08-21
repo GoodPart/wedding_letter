@@ -74,14 +74,14 @@ function App() {
         <div data-aos="fade-up" data-aos-offset="200" data-aos-duration="1400">
           <Main />
         </div>
-        <section
+        {/* <section
           data-aos="fade-up"
           data-aos-offset="200"
           data-aos-duration="1400"
         >
           <img src={symbol} width={48} style={{ textAlign: "center" }} />
           <GreetingWrap />
-        </section>
+        </section> */}
 
         <section
           data-aos="fade-up"
@@ -103,6 +103,7 @@ function App() {
             <div
               style={{
                 border: "2px dashed #ccc",
+                borderRadius: 8,
                 backgroundColor: "rgb(249, 249, 249)",
                 marginTop: 24,
                 cursor: "pointer",
@@ -180,11 +181,25 @@ function App() {
           <img src={symbol} width={48} style={{ textAlign: "center" }} />
           <Consideration />
         </section>
+        <section>
+          <div
+            style={{
+              writingMode: "vertical-lr",
+              margin: "36px auto 6px",
+              letterSpacing: "0.6rem",
+              fontSize: "1.2rem",
+              color: "#444",
+            }}
+          >
+            예쁘게 잘 살겠습니다
+          </div>
+          <div style={{ color: "#ccc" }}>Thank you for all the attention</div>
+        </section>
+
         <section
           style={{
             padding: "24px 24px 48px",
-            // borderTop: "1px solid #777",
-            backgroundColor: "#444",
+            backgroundColor: "#333",
             display: "flex",
             justifyContent: "center",
             gap: 16,

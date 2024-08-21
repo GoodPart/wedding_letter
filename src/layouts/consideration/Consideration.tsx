@@ -9,6 +9,8 @@ const IndexTitle = styled.div<{ show: boolean }>`
   font-size: 0.9rem;
   border: ${(props) =>
     props.show != true ? "2px dashed rgb(204, 204, 204)" : "none"};
+  border-radius: 8px;
+
   span {
     color: #000;
     margin-right: 4px;
@@ -16,6 +18,10 @@ const IndexTitle = styled.div<{ show: boolean }>`
 
   input[type="checkbox"] {
     display: none;
+
+    &:checked + label {
+      border-radius: 8px 8px 0 0;
+    }
   }
   input + label {
     display: flex;
@@ -42,6 +48,8 @@ const ListWrap = styled.div<{ show: boolean }>`
   & + ${IndexTitle} {
     margin-top: 12px;
   }
+
+  border-radius: ${(props) => (props.show == true ? "0 0 8px 8px" : 0)};
 `;
 
 const Consideration = () => {
@@ -53,7 +61,6 @@ const Consideration = () => {
 
   const onChangeHandle = (event: any) => {
     const { name, checked } = event.target;
-    console.log(name, checked);
     setShow({
       ...show,
       [name]: checked,

@@ -6,14 +6,16 @@ const MemberWrap = () => {
   const { memberInfo } = data;
   return (
     <div>
-      {memberInfo.map((item, index) => {
+      {Object.values(memberInfo).map((item, index) => {
         const gapType =
           item.gap === "딸" ? <>&nbsp;{item.gap}&nbsp;</> : <>{item.gap}</>;
+
         return (
           <>
             <JustifyItem key={index}>
               {/* &nbsp; */}
-              {item.p1} &#183; {item.p2}의 <strong>{gapType}</strong> {item.p3}
+              {item.p1.name} &#183; {item.p2.name}의 <strong>{gapType}</strong>{" "}
+              {item.p3.name}
             </JustifyItem>
           </>
         );

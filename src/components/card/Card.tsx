@@ -41,8 +41,8 @@ const CardLayout = styled.div`
   min-width: 275px;
   color: rgba(0, 0, 0, 0.87);
   text-align: left;
-  padding: 16px;
-  margin-bottom: 12px;
+  padding: 8px;
+  /* margin-bottom: 6px; */
 
   .title2 {
     font-weight: 700;
