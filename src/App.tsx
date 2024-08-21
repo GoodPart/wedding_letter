@@ -71,7 +71,7 @@ function App() {
       <Intro />
 
       <div className="content">
-        <div data-aos="fade-up" data-aos-offset="200" data-aos-duration="1400">
+        <div data-aos="fade-up" data-aos-offset="100" data-aos-duration="1000">
           <Main />
         </div>
         {/* <section
@@ -189,6 +189,7 @@ function App() {
               letterSpacing: "0.6rem",
               fontSize: "1.2rem",
               color: "#444",
+              minWidth: "300px",
             }}
           >
             예쁘게 잘 살겠습니다
