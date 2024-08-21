@@ -189,7 +189,7 @@ function App() {
               letterSpacing: "0.6rem",
               fontSize: "1.2rem",
               color: "#444",
-              minWidth: "300px",
+              minHeight: "300px",
             }}
           >
             예쁘게 잘 살겠습니다
