@@ -32,6 +32,71 @@ import Toast from "./components/toast/Toast";
 import KakaoShareButton from "./components/share/Kakao";
 import { DefaultButton } from "./components/share/DefaultButton";
 
+import PhotoSwipeLightbox from 'photoswipe/lightbox';
+import 'photoswipe/style.css';
+
+import img01 from "./assets/images/1.jpg";
+import img02 from "./assets/images/2.jpg";
+import img03 from "./assets/images/3.jpg";
+import img04 from "./assets/images/4.jpg";
+import img05 from "./assets/images/5.jpg";
+import img01s from "./assets/images/1_s.jpg";
+import img02s from "./assets/images/2_s.jpg";
+import img03s from "./assets/images/3_s.jpg";
+import img04s from "./assets/images/4_s.jpg";
+import img05s from "./assets/images/5_s.jpg";
+import img06 from "./assets/images/6.jpg";
+import img07 from "./assets/images/7.jpg";
+import img08 from "./assets/images/8.jpg";
+import img09 from "./assets/images/9.jpg";
+import img10 from "./assets/images/10.jpg";
+import img11 from "./assets/images/11.jpg";
+import img12 from "./assets/images/12.jpg";
+import img13 from "./assets/images/13.jpg";
+import img14 from "./assets/images/14.jpg";
+import img15 from "./assets/images/15.jpg";
+import img16 from "./assets/images/16.jpg";
+import img17 from "./assets/images/17.jpg";
+import img18 from "./assets/images/18.jpg";
+import img19 from "./assets/images/19.jpg";
+import img20 from "./assets/images/20.jpg";
+import img21 from "./assets/images/21.jpg";
+import img22 from "./assets/images/22.jpg";
+
+export  function SimpleGallery(props:any) {
+  useEffect(() => {
+    let lightbox = new PhotoSwipeLightbox({
+      gallery: '#' + props.galleryID,
+      children: 'a',
+      pswpModule: () => import('photoswipe'),
+    });
+    lightbox.init();
+
+    return () => {
+      lightbox.destroy();
+      // lightbox = null;
+    };
+  }, []);
+
+  return (
+    <div className="pswp-gallery" id={props.galleryID}>
+      {props.images.map((image:any, index:any) => (
+        <a
+          href={image.largeURL}
+          data-pswp-width={image.width}
+          data-pswp-height={image.height}
+          key={props.galleryID + '-' + index}
+          target="_blank"
+          rel="noreferrer"
+        >
+          <img src={image.thumbnailURL} alt="" />
+        </a>
+      ))}
+    </div>
+  );
+}
+
+
 function App() {
   // const handleDeepLink = () => {
   //   const isIos = window.navigator.userAgent.match(/ipad|iphone/i) !== null;
@@ -140,6 +205,36 @@ function App() {
         >
           <Title title="갤러리" titleDecoration="Gallery" />
           <GalleryWrap />
+          {/* <SimpleGallery
+            galleryID="my-test-gallery"
+            images={[
+              {
+                largeURL:
+                  img01,
+                thumbnailURL:
+                  img01s,
+                width: 1920,
+                height: 1280,
+              },
+              {
+                largeURL:
+                  img02,
+                thumbnailURL:
+                  img02s,
+                width: 1280,
+                height: 1920,
+              },
+              {
+                largeURL:
+                  img03,
+                thumbnailURL:
+                  img03s,
+                width: 1920,
+                height: 1280,
+              },
+            ]}
+          /> */}
+
         </section>
 
         <section
@@ -159,7 +254,7 @@ function App() {
           >
             {/* <>@@@지도 영역@@@</> */}
             {/* 맵 때문에 null object 에러 발생 */}
-            <Map />
+            {/* <Map /> */}
           </NavermapsProvider>
           <Vehicle />
         </section>

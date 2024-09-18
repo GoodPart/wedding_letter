@@ -4,15 +4,22 @@ import Car from "../../assets/images/logo/car.png";
 import Subway from "../../assets/images/logo/subway.png";
 
 const Vehicle = () => {
+  function copyToClipBoard() {
+    window.navigator.clipboard.writeText(
+      "인천광역시 부평구 부평대로 283"
+    );
+    alert("주소를 복사했습니다.");
+  }
   return (
     <VehicleWrap>
       <div>
         <div className="title">지하철 안내</div>
-        <div>인천1호선 갈산역2번출구 1분거리</div>
+        <div>인천1호선 갈산역2번출구</div>
       </div>
       <div>
-        <div className="title">자차 안내</div>
-        <div>고속도로 부평 I/C 주차시설 1500대</div>
+        <div className="title">자차 안내(우림 라이온스밸리)</div>
+        <div>인천광역시 부평구 부평대로 283 <strong>(부평 우림라이온스밸리 주차장 이용)</strong> <button type="button" onClick={()=>copyToClipBoard()}>주소 복사</button></div>
+        {/* <div>- </div> */}
       </div>
     </VehicleWrap>
   );
@@ -53,8 +60,12 @@ const VehicleWrap = styled.div`
     font-weight: 900;
     color: #333;
   }
-  .title + div {
-    line-height: 1rem;
+  .title ~ div {
+    line-height: 1.4rem;
+
+    & + div {
+      margin-top: 8px;
+    }
   }
 `;
 

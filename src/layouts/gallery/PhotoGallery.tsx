@@ -24,16 +24,16 @@ export const PhotoGallery = () => {
             <Item
               key={index}
               cropped
-              original={item.source}
-              thumbnail={item.source}
-              width={375}
-              height={375}
+              original={item.originSource}
+              thumbnail={item.thumbSource}
+              width={item.width} // 390
+              height={item.height}
             >
               {({ ref, open }) => (
                 <img
                   style={smallItemStyles}
                   alt={item.alt}
-                  src={item.source}
+                  src={item.originSource}
                   ref={ref}
                   onClick={open}
                 />

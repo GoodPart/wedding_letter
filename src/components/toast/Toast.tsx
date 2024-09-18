@@ -49,8 +49,8 @@ const ToastLayout = styled.div`
     -webkit-appearance: none;
     -moz-appearance: none;
 
-    background-image: linear-gradient(45deg, transparent 50%, coral 50%),
-      linear-gradient(135deg, coral 50%, transparent 50%),
+    background-image: linear-gradient(45deg, transparent 50%, #f7a3a7 50%),
+      linear-gradient(135deg, #f7a3a7 50%, transparent 50%),
       linear-gradient(to right, #ccc, #ccc);
     background-position: calc(100% - 18px) calc(1em + 8px),
       calc(100% - 13px) calc(1em + 8px), calc(100% - 2.5em) 0.5em;
@@ -82,7 +82,7 @@ const ToastLayout = styled.div`
     &.active {
       pointer-events: all;
       cursor: default;
-      background-color: coral;
+      background-color: #f7a3a7;
     }
   }
 
@@ -115,7 +115,7 @@ const ToastLayout = styled.div`
     }
     input[type="radio"]:checked + label {
       color: #fff;
-      background-color: coral;
+      background-color: #f7a3a7;
     }
   }
 

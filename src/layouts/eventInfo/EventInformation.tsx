@@ -98,7 +98,7 @@ const TapArea = styled.div`
     transform: translateX(-50%);
     width: 0;
     height: 2px;
-    background-color: coral;
+    background-color: #f7a3a7;
     transition: width 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
   }
   .tabItem input[type="radio"]:checked + label {

@@ -66,8 +66,13 @@ const CardLayout = styled.div`
   .bankInfo {
     display: flex;
     justify-content: space-between;
+    margin-top: 8px;
+    text-decoration: none;
     span:first-child {
       font-weight: 700;
+    }
+    span:last-child {
+      color: #777;
     }
     button {
       padding: 2px 12px;
@@ -82,11 +87,11 @@ const Card = ({ groupName, name, desc, bankInfo, relationship }: Card) => {
     <CardLayout>
       {/* <div className="title1">{groupName ? "신랑측" : "신부측"}</div> */}
       <div className="title2">{name}</div>
-      <div className="title3">{relationship}</div>
-      <div className="container">{desc}</div>
+      {/* <div className="title3">{relationship}</div> */}
+      {/* <div className="container">{desc}</div> */}
       <div className="bankInfo">
         <div>
-          <span>{bankInfo.name}</span> <span>{bankInfo.number}</span>
+          <span>{bankInfo.name}</span> &#183; <span>{bankInfo.number}</span>
         </div>
 
         <CopyToClipboard
