@@ -254,7 +254,7 @@ function App() {
           >
             {/* <>@@@지도 영역@@@</> */}
             {/* 맵 때문에 null object 에러 발생 */}
-            {/* <Map /> */}
+            <Map />
           </NavermapsProvider>
           <Vehicle />
         </section>
