@@ -5,9 +5,7 @@ import Subway from "../../assets/images/logo/subway.png";
 
 const Vehicle = () => {
   function copyToClipBoard() {
-    window.navigator.clipboard.writeText(
-      "인천광역시 부평구 부평대로 283"
-    );
+    window.navigator.clipboard.writeText("인천광역시 부평구 부평대로 283");
     alert("주소를 복사했습니다.");
   }
   return (
@@ -18,7 +16,13 @@ const Vehicle = () => {
       </div>
       <div>
         <div className="title">자차 안내(우림 라이온스밸리)</div>
-        <div>인천광역시 부평구 부평대로 283 <strong>(부평 우림라이온스밸리 주차장 이용)</strong> <button type="button" onClick={()=>copyToClipBoard()}>주소 복사</button></div>
+        <div>
+          인천광역시 부평구 부평대로 283{" "}
+          <strong>(부평 우림라이온스밸리 주차장 이용)</strong>{" "}
+          <button type="button" id="copyLink" onClick={() => copyToClipBoard()}>
+            주소 복사
+          </button>
+        </div>
         {/* <div>- </div> */}
       </div>
     </VehicleWrap>
@@ -38,6 +42,14 @@ const VehicleWrap = styled.div`
     0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 3px 6px 0px rgba(0, 0, 0, 0.12);
   overflow: hidden;
   min-width: 275px;
+
+  #copyLink {
+    padding: 4px;
+    background-color: #ddd;
+    border: 1px solid #ccc;
+    font-weight: 700;
+    border-radius: 4px;
+  }
 
   > div {
     position: relative;

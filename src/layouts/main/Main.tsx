@@ -60,13 +60,13 @@ const Wrapper = styled.div<{ vValue: number }>`
   font-family: "Serif_KR_light";
 
   img {
-    margin-top: 26%;
+    /* margin-top: 26%; */
     width: 100%;
   }
 `;
 
 const Header = styled.div`
-  position: absolute;
+  position: relative;
   top: 0%;
   left: 50%;
   transform: translateX(-50%);

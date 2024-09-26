@@ -64,11 +64,13 @@ const CalendarWrapper = styled.div`
     ) {
     color: #544f4f;
   }
-  .react-calendar__month-view__weekdays__weekday--weekend {
-    color: #d10000;
+  .react-calendar__month-view__weekdays__weekday--weekend,
+  .react-calendar__month-view__days__day--weekend {
+    color: #f7a3a7;
   }
   .react-calendar__tile--active {
     background-color: #f7a3a7;
+    color: #fff;
     border-radius: 30px;
     font-weight: 900;
   }

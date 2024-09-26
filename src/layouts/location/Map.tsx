@@ -28,23 +28,66 @@ const Map = () => {
     const isIos = window.navigator.userAgent.match(/ipad|iphone/i) !== null;
     const isAndroid = window.navigator.userAgent.match(/Android/i) !== null;
 
-    // const { mapInfo } = data;
+    console.log("agent", window.navigator.userAgent);
 
-    if (isIos) {
-      // 기기가 ios 인 경우
-      window.location.replace(
-        `nmap://navigation?dlat=${mapInfo.lat}&dlng=${mapInfo.log}&dname=%EC%9B%A8%EC%8A%A4%ED%84%B4%ED%8C%B0%EB%A6%AC%EC%8A%A4%EC%9B%A8%EB%94%A9%EC%98%88%EC%8B%9D%EC%9E%A5&appname=com.example.myapp`
-      );
-    } else if (isAndroid) {
-      // 기기가 android 인 경우
-      window.location.replace(
-        `intent://navigation?dlat=${mapInfo.lat}&dlng=${mapInfo.log}&dname=%EC%9B%A8%EC%8A%A4%ED%84%B4%ED%8C%B0%EB%A6%AC%EC%8A%A4%EC%9B%A8%EB%94%A9%EC%98%88%EC%8B%9D%EC%9E%A5&appname=com.example.myapp`
-      );
-    } else {
-      // 그 외(윈도우 데스크탑 등)
-      window.location.replace(
-        `https://map.naver.com/p/entry/place/1832003609?c=15.00,0,0,0,dh`
-      );
+    const { mapInfo } = data;
+
+    // if (isIos) {
+    //   // 기기가 ios 인 경우
+    //   console.log("ios");
+    //   window.location.replace(
+    //     `nmap://navigation?dlat=${mapInfo.lat}&dlng=${mapInfo.log}&dname=%EC%9B%A8%EC%8A%A4%ED%84%B4%ED%8C%B0%EB%A6%AC%EC%8A%A4%EC%9B%A8%EB%94%A9%EC%98%88%EC%8B%9D%EC%9E%A5&appname=com.example.myapp`
+    //   );
+    // } else if (isAndroid) {
+    //   // 기기가 android 인 경우
+    //   console.log("android");
+    //   window.location.replace(
+    //     `intent://navigation?dlat=${mapInfo.lat}&dlng=${mapInfo.log}&dname=%EC%9B%A8%EC%8A%A4%ED%84%B4%ED%8C%B0%EB%A6%AC%EC%8A%A4%EC%9B%A8%EB%94%A9%EC%98%88%EC%8B%9D%EC%9E%A5&appname=com.example.myapp`
+    //   );
+    // } else {
+    //   console.log("window");
+    //   // 그 외(윈도우 데스크탑 등)
+    //   window.location.replace(
+    //     `https://map.naver.com/p/entry/place/1832003609?c=15.00,0,0,0,dh`
+    //   );
+    // }
+
+    if (/Android|iPhone/i.test(navigator.userAgent)) {
+      console.log("mobile");
+    }
+
+    if (navigator.userAgent.match(/iPhone/i)) {
+      console.log("iPhone");
+      window.location.href = `nmap://navigation?dlat=${mapInfo.lat}&dlng=${mapInfo.log}&dname=%EC%9B%A8%EC%8A%A4%ED%84%B4%ED%8C%B0%EB%A6%AC%EC%8A%A4%EC%9B%A8%EB%94%A9%EC%98%88%EC%8B%9D%EC%9E%A5&appname=com.example.myapp`;
+    }
+
+    if (navigator.userAgent.match(/Android/i)) {
+      console.log("Android");
+      window.location.href = `intent://navigation?dlat=${mapInfo.lat}&dlng=${mapInfo.log}&dname=%EC%9B%A8%EC%8A%A4%ED%84%B4%ED%8C%B0%EB%A6%AC%EC%8A%A4%EC%9B%A8%EB%94%A9%EC%98%88%EC%8B%9D%EC%9E%A5&appname=com.example.myapp`;
+    }
+
+    if (
+      navigator.userAgent.match(/Mac OS/i) ||
+      navigator.userAgent.match(/Mac OS/i)
+    ) {
+      console.log("mac os, window os");
+    }
+
+    // 모바일 장치인지 확인하기 -> 리다이렉트
+    if (
+      navigator.userAgent.match(/Android/i) ||
+      navigator.userAgent.match(/webOS/i) ||
+      navigator.userAgent.match(/iPhone/i) ||
+      navigator.userAgent.match(/iPad/i) ||
+      navigator.userAgent.match(/iPod/i) ||
+      navigator.userAgent.match(/BlackBerry/i) ||
+      navigator.userAgent.match(/Windows Phone/i) ||
+      navigator.userAgent.match(/Mac OS/i) ||
+      navigator.userAgent.match(/Window OS/i)
+    ) {
+      window.location.href = `https://map.naver.com/p/entry/place/1832003609?c=15.00,0,0,0,dh`;
+
+      console.log("web mobile");
     }
   };
 
