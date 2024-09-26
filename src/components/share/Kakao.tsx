@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import ButtonStyle from "./style";
+import thumb from "../../assets/images/og_thumb.jpeg";
 
 declare global {
   interface Window {
@@ -21,22 +22,20 @@ const KakaoShareButton: React.FC = () => {
         objectType: "feed",
         content: {
           title: "경수❤️예나 결혼식에 초대합니다",
-          description: "모바일 청첩장",
+          description: "2024년 11월 16일 토요일 오후 1시 20분",
           imageUrl:
-            "https://master--fascinating-sprite-94efd8.netlify.app/static/media/main.fcb25f69ac96d600ec33.jpeg",
+            "https://fascinating-sprite-94efd8.netlify.app/og_thumb.jpeg",
           link: {
-            mobileWebUrl:
-              "https://master--fascinating-sprite-94efd8.netlify.app",
-            webUrl: "https://master--fascinating-sprite-94efd8.netlify.app",
+            mobileWebUrl: "https://fascinating-sprite-94efd8.netlify.app/",
+            webUrl: "https://fascinating-sprite-94efd8.netlify.app/",
           },
         },
         buttons: [
           {
             title: "웹으로 보기",
             link: {
-              mobileWebUrl:
-                "https://master--fascinating-sprite-94efd8.netlify.app",
-              webUrl: "https://master--fascinating-sprite-94efd8.netlify.app",
+              mobileWebUrl: "https://fascinating-sprite-94efd8.netlify.app/",
+              webUrl: "https://fascinating-sprite-94efd8.netlify.app/",
             },
           },
         ],
