@@ -18,7 +18,7 @@ const Vehicle = () => {
         <div className="title">자차 안내(우림 라이온스밸리)</div>
         <div>
           인천광역시 부평구 부평대로 283{" "}
-          <strong>(부평 우림라이온스밸리 주차장 이용)</strong>{" "}
+          <strong>(부평우림라이온스밸리 주차장 이용)</strong>{" "}
           <button type="button" id="copyLink" onClick={() => copyToClipBoard()}>
             주소 복사
           </button>

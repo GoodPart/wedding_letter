@@ -24,7 +24,7 @@ const KakaoShareButton: React.FC = () => {
           title: "경수❤️예나 결혼식에 초대합니다",
           description: "2024년 11월 16일 토요일 오후 1시 20분",
           imageUrl:
-            "https://fascinating-sprite-94efd8.netlify.app/og_thumb.jpeg",
+            "https://fascinating-sprite-94efd8.netlify.app/og_thumb2.jpg",
           link: {
             mobileWebUrl: "https://fascinating-sprite-94efd8.netlify.app/",
             webUrl: "https://fascinating-sprite-94efd8.netlify.app/",

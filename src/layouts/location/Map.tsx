@@ -68,7 +68,7 @@ const Map = () => {
 
     if (
       navigator.userAgent.match(/Mac OS/i) ||
-      navigator.userAgent.match(/Mac OS/i)
+      navigator.userAgent.match(/Windows/i)
     ) {
       console.log("mac os, window os");
     }
@@ -83,7 +83,7 @@ const Map = () => {
       navigator.userAgent.match(/BlackBerry/i) ||
       navigator.userAgent.match(/Windows Phone/i) ||
       navigator.userAgent.match(/Mac OS/i) ||
-      navigator.userAgent.match(/Window OS/i)
+      navigator.userAgent.match(/Windows/i)
     ) {
       window.location.href = `https://map.naver.com/p/entry/place/1832003609?c=15.00,0,0,0,dh`;
 

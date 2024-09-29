@@ -161,7 +161,7 @@ function App() {
           data-aos-offset="200"
           data-aos-duration="1400"
         >
-          <Title title="날짜" titleDecoration="day infomation" />
+          <Title title="날짜" titleDecoration="day information" />
           <hr />
           <br />
           <CalendarWrap />
