@@ -28,7 +28,7 @@ const Map = () => {
     const isIos = window.navigator.userAgent.match(/ipad|iphone/i) !== null;
     const isAndroid = window.navigator.userAgent.match(/Android/i) !== null;
 
-    console.log("agent", window.navigator.userAgent);
+    // console.log("agent", window.navigator.userAgent);
 
     const { mapInfo } = data;
 

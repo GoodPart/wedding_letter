@@ -70,27 +70,6 @@ export function SimpleGallery(props: any) {
 }
 
 function App() {
-  // const handleDeepLink = () => {
-  //   const isIos = window.navigator.userAgent.match(/ipad|iphone/i) !== null;
-  //   const isAndroid = window.navigator.userAgent.match(/Android/i) !== null;
-
-  //   const { mapInfo } = data;
-
-  //   if (isIos) {
-  //     // 기기가 ios 인 경우
-  //     window.location.replace(
-  //       `nmap://navigation?dlat=${mapInfo.lat}&dlng=${mapInfo.log}&dname=%EC%9B%A8%EC%8A%A4%ED%84%B4%ED%8C%B0%EB%A6%AC%EC%8A%A4%EC%9B%A8%EB%94%A9%EC%98%88%EC%8B%9D%EC%9E%A5&appname=com.example.myapp`
-  //     );
-  //   } else if (isAndroid) {
-  //     // 기기가 android 인 경우
-  //     window.location.replace("intent://navigation?&appname=com.example.myapp");
-  //   } else {
-  //     // 그 외(윈도우 데스크탑 등)
-  //     window.location.replace(
-  //       `nmap://navigation?dlat=${mapInfo.lat}&dlng=${mapInfo.log}&dname=%EC%9B%A8%EC%8A%A4%ED%84%B4%ED%8C%B0%EB%A6%AC%EC%8A%A4%EC%9B%A8%EB%94%A9%EC%98%88%EC%8B%9D%EC%9E%A5&appname=com.example.myapp`
-  //     );
-  //   }
-  // };
   const [toastData, setToastData] = useState<boolean>(false);
   const toasting = () => {
     setToastData((toastData) => !toastData);

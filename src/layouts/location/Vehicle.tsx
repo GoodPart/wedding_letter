@@ -15,7 +15,7 @@ const Vehicle = () => {
         <div>인천1호선 갈산역2번출구</div>
       </div>
       <div>
-        <div className="title">자차 안내(우림 라이온스밸리)</div>
+        <div className="title">자차 안내(우림라이온스밸리)</div>
         <div>
           인천광역시 부평구 부평대로 283{" "}
           <strong>(부평우림라이온스밸리 주차장 이용)</strong>{" "}
