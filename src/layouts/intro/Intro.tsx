@@ -62,6 +62,10 @@ const GuideArrow = styled.div`
   align-items: center;
   gap: 0;
 
+  .title {
+    display : flex;
+    flex-direction : column
+  }
   img {
     opacity: calc(0.6);
   }
@@ -157,7 +161,9 @@ const Intro = () => {
   return (
     <>
       <GuideArrow>
-        <span>위로 스크롤</span> <img src={scrollUp} />
+        <div className="title">
+          <p>아래 내용이 있습니다</p>
+        </div> <img src={scrollUp} />
       </GuideArrow>
       <StickyWrap ref={stickyContainer}>
         <div className="sticky">
