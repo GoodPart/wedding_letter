@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { handleScrolls } from "../../hooks/ScrollMasic";
 
 import scrollUp from "../../assets/images/symbol/icons8-double-up.gif";
+import love from "../../assets/images/symbol/love.png";
 
 const StickyWrap = styled.div`
   position: relative;
@@ -56,18 +57,47 @@ const GuideArrow = styled.div`
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, -50%);
   display: flex;
   flex-direction: column-reverse;
   align-items: center;
   gap: 0;
 
   .title {
-    display : flex;
-    flex-direction : column
+    display: flex;
+    flex-direction: column;
+    margin-top: 12px;
+    font-size: 16px;
+    font-weight: 700;
+    /* color: #333; */
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 12px;
+    padding: 2px 16px;
+    color: #fff;
+    background-color: #f7a3a7d4;
+    box-shadow: 0px 10px 9px -2px rgba(148, 146, 146, 0.37);
+    -webkit-box-shadow: 0px 10px 9px -2px rgba(148, 146, 146, 0.37);
+    -moz-box-shadow: 0px 10px 9px -2px rgba(148, 146, 146, 0.37);
   }
   img {
     opacity: calc(0.6);
+    animation-name: upDown;
+    animation-duration: 1.2s;
+    animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+    animation-iteration-count: infinite;
+    /* animation-direction: alternate; */
+  }
+
+  @keyframes upDown {
+    0% {
+      transform: translateY(0);
+    }
+    75% {
+      transform: translateY(8px);
+    }
+    100% {
+      transform: translateY(0);
+    }
   }
 `;
 
@@ -163,7 +193,8 @@ const Intro = () => {
       <GuideArrow>
         <div className="title">
           <p>아래 내용이 있습니다</p>
-        </div> <img src={scrollUp} />
+        </div>
+        <img src={love} width={128} />
       </GuideArrow>
       <StickyWrap ref={stickyContainer}>
         <div className="sticky">
