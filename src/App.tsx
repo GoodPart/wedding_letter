@@ -115,7 +115,7 @@ function App() {
           <img src={symbol} width={48} style={{ textAlign: "center" }} />
           <MemberWrap />
           <div>
-            <div
+            {/* <div
               style={{
                 border: "2px dashed #ccc",
                 borderRadius: 8,
@@ -126,7 +126,7 @@ function App() {
               onClick={toasting}
             >
               연락하기
-            </div>
+            </div> */}
             <br />
           </div>
         </section>
@@ -194,7 +194,7 @@ function App() {
         >
           <Title title="마음을 전하실 곳" titleDecoration="consideration" />
           <img src={symbol} width={48} style={{ textAlign: "center" }} />
-          <Consideration />
+          {/* <Consideration /> */}
         </section>
         <section>
           <div
