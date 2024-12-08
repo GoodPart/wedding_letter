@@ -119,7 +119,7 @@ function App() {
               style={{
                 border: "2px dashed #ccc",
                 borderRadius: 8,
-                backgroundColor: "rgb(249, 249, 249)",
+                backgroundColor: "rgb(249, 249, 249)", 
                 marginTop: 24,
                 cursor: "pointer",
               }}
